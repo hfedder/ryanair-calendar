@@ -1,12 +1,14 @@
 name: Update Ryanair calendar
 
 on:
+  # Giver os en "Run workflow"-knap til manuel test
   workflow_dispatch:
 
+  # Automatisk kørsel hver nat kl. 03:17 UTC
   schedule:
-    # Hver dag kl. 03:17 UTC
     - cron: "17 3 * * *"
 
+# Tillader GitHub Action at opdatere ICS-filen i repositoryet
 permissions:
   contents: write
 
@@ -23,19 +25,21 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install "mcp>=1.0"
+
       - name: Update Ryanair calendar
         run: python update_ryanair_calendar.py
+
+      - name: Check generated calendar
+        run: |
+          test -s Ryanair_TRN_BGY_CPH_verificerede_afgange.ics
+          echo "ICS calendar exists and is not empty"
+          grep -c "BEGIN:VEVENT" Ryanair_TRN_BGY_CPH_verificerede_afgange.ics
 
       - name: Commit calendar if changed
         run: |
           git config user.name "Ryanair Calendar Bot"
           git config user.email "actions@users.noreply.github.com"
-
-          git add Ryanair_TRN_BGY_CPH_verificerede_afgange.ics
-
-          if git diff --cached --quiet; then
-            echo "No flight changes found"
-          else
-            git commit -m "Update Ryanair flight calendar"
-            git push
-          fi
