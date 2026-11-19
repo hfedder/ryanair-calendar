@@ -5,7 +5,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from mcp import ClientSession
-from mcp.client.streamable_http import streamablehttp_client
+from mcp.client.streamable_http import streamable_http_client
 
 
 MCP_URL = "https://services-api.ryanair.com/mcp-server/mcp"
@@ -264,7 +264,7 @@ async def main():
 
     all_flights = []
 
-    async with streamablehttp_client(
+    async with streamable_http_client(
         MCP_URL
     ) as (
         read_stream,
