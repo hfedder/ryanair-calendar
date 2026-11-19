@@ -269,7 +269,6 @@ async def main():
     ) as (
         read_stream,
         write_stream,
-        _,
     ):
         async with ClientSession(
             read_stream,
