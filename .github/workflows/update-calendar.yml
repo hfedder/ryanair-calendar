@@ -1,0 +1,41 @@
+name: Update Ryanair calendar
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # Hver dag kl. 03:17 UTC
+    - cron: "17 3 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Update Ryanair calendar
+        run: python update_ryanair_calendar.py
+
+      - name: Commit calendar if changed
+        run: |
+          git config user.name "Ryanair Calendar Bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          git add Ryanair_TRN_BGY_CPH_verificerede_afgange.ics
+
+          if git diff --cached --quiet; then
+            echo "No flight changes found"
+          else
+            git commit -m "Update Ryanair flight calendar"
+            git push
+          fi
