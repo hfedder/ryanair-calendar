@@ -361,7 +361,7 @@ def build_ics(flights):
             + destination
         )
 
-                location = origin + " -> " + destination
+        location = origin + " -> " + destination
 
 
         description = build_description(flight)
