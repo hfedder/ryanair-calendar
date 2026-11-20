@@ -348,17 +348,21 @@ def build_ics(flights):
             else "Europe/Rome"
         )
 
+        flight_number = flight["flight_number"]
+        origin = flight["origin"]
+        destination = flight["destination"]
+
         summary = (
-            f'✈ {flight["flight_number"]} '
-
-            f'{flight["origin"]} → '
-            f'{flight["destination"]}'
+            "✈ "
+            + flight_number
+            + " "
+            + origin
+            + " -> "
+            + destination
         )
 
-        location = (
-            f'{flight["origin"]} → '
-            f'{flight["destination]}'
-        )
+                location = origin + " -> " + destination
+
 
         description = build_description(flight)
 
