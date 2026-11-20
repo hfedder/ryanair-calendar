@@ -276,21 +276,31 @@ async def main():
         ) as session:
 
             await session.initialize()
-
-            tools = await session.list_tools()
-
-            print("=== TOOL SCHEMA ===")
-
-            for tool in tools.tools:
-                if tool.name == "pricing-get-cheapest-one-way-flight":
-                    print(tool.input_schema)
-
-            print("=== END TOOL SCHEMA ===")
-
-            raise RuntimeError(
-                "Diagnostic stop after schema"
+            result = await session.call_tool(
+                "pricing-get-cheapest-one-way-flight",
+                arguments={
+                    "outboundDepartureDateFrom": "2026-11-20",
+                    "outboundDepartureDateTo": "2026-11-27",
+                    "departureIataCodes": ["TRN"],
+                    "arrivalIataCodes": ["CPH"],
+                    "currency": "EUR",
+                    "limit": 50,
+                    "pageNumber": 0,
+                },
             )
 
+            print("=== RYANAIR TEST RESULT ===")
+
+            for item in result.content:
+                if hasattr(item, "text"):
+                    print(item.text)
+
+            print("=== END TEST RESULT ===")
+
+            raise RuntimeError(
+                "Diagnostic stop after Ryanair test"
+            )
+            
             current = today
 
             while current <= until:
