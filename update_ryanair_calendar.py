@@ -1,596 +1,274 @@
-import asyncio
+import json
+import os
 import re
+import shutil
+import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from mcp import ClientSession
-from mcp.client.streamable_http import streamable_http_client
+import requests
 
+OUTPUT_FILE = Path("Ryanair_TRN_BGY_CPH_verificerede_afgange.ics")
+CANDIDATE_FILE = Path("Ryanair_TRN_BGY_CPH_candidate.ics")
+BACKUP_FILE = Path("Ryanair_TRN_BGY_CPH_verificerede_afgange.backup.ics")
+REPORT_FILE = Path("ryanair_validation_report.json")
 
-MCP_URL = "https://services-api.ryanair.com/mcp-server/mcp"
-
-OUTPUT_FILE = Path(
-    "Ryanair_TRN_BGY_CPH_verificerede_afgange.ics"
-)
-
-# Alle fire retninger.
-ROUTES = [
-    ("TRN", "CPH"),
-    ("BGY", "CPH"),
-    ("CPH", "TRN"),
-    ("CPH", "BGY"),
-]
-
-# Rullende periode.
+ROUTES = [("TRN", "CPH"), ("BGY", "CPH"), ("CPH", "TRN"), ("CPH", "BGY")]
 DAYS_AHEAD = 365
+WINDOW_DAYS = 6
+TIMEOUT_SECONDS = 30
+MAX_RETRIES = 3
+PUBLISH = os.getenv("PUBLISH_CALENDAR", "false").lower() == "true"
 
-# Antal parallelle forespørgsler.
-# Holdes relativt lavt for ikke at overbelaste Ryanair MCP.
-MAX_CONCURRENT_REQUESTS = 6
-
-# Der skal findes mindst dette antal fly, før den eksisterende
-# Outlook-kalender må overskrives.
-MINIMUM_FLIGHTS = 20
-
-ITALY_TIMEZONE = ZoneInfo("Europe/Rome")
-DENMARK_TIMEZONE = ZoneInfo("Europe/Copenhagen")
+API_URL = "https://www.ryanair.com/api/booking/v4/en-gb/availability"
+ITALY_TZ = ZoneInfo("Europe/Rome")
+DENMARK_TZ = ZoneInfo("Europe/Copenhagen")
 
 
-def airport_timezone(airport_code):
-    if airport_code == "CPH":
-        return DENMARK_TIMEZONE
-
-    return ITALY_TIMEZONE
+def airport_tz(code):
+    return DENMARK_TZ if code == "CPH" else ITALY_TZ
 
 
 def escape_ics(value):
-    return (
-        str(value)
-        .replace("\\", "\\\\")
-        .replace(";", "\\;")
-        .replace(",", "\\,")
-        .replace("\r\n", "\\n")
-        .replace("\n", "\\n")
-    )
+    return (str(value).replace("\\", "\\\\").replace(";", "\\;")
+            .replace(",", "\\,").replace("\r\n", "\\n").replace("\n", "\\n"))
 
 
 def fold_ics_line(line):
-    """
-    Fold lange ICS-linjer efter iCalendar-princippet.
-    Fortsættelseslinjer starter med ét mellemrum.
-    """
-
-    encoded = line.encode("utf-8")
+    raw = line.encode("utf-8")
     parts = []
-
-    while len(encoded) > 73:
+    while len(raw) > 73:
         cut = 73
-
-        while cut > 0 and encoded[cut] & 0xC0 == 0x80:
+        while cut > 0 and (raw[cut] & 0xC0) == 0x80:
             cut -= 1
-
-        parts.append(encoded[:cut].decode("utf-8"))
-        encoded = encoded[cut:]
-
-    parts.append(encoded.decode("utf-8"))
-
+        parts.append(raw[:cut].decode("utf-8"))
+        raw = raw[cut:]
+    parts.append(raw.decode("utf-8"))
     return "\r\n ".join(parts)
 
 
-def extract_result_text(result):
-    texts = []
+def parse_dt(value, tz):
+    if not value:
+        return None
+    text = str(value).replace("Z", "+00:00")
+    try:
+        dt = datetime.fromisoformat(text)
+    except ValueError:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=tz)
+    return dt.astimezone(tz)
 
-    for item in result.content:
-        if hasattr(item, "text") and item.text:
-            texts.append(item.text)
 
-    return "\n".join(texts)
-
-
-def parse_flights(
-    text,
-    flight_date,
-    expected_origin,
-    expected_destination,
-):
-    """
-    Parser Ryanairs tekstlinjer, eksempelvis:
-
-    FR5089: TRN 09:20 → CPH 11:30 | 66.44 EUR
-
-    Datoen kommer fra den konkrete dagsforespørgsel.
-    """
-
-    pattern = re.compile(
-        r"\b(FR\s?\d{1,5})\s*:\s*"
-        r"([A-Z]{3})\s+"
-        r"([0-2]\d:[0-5]\d)\s*"
-        r"(?:→|->|-)\s*"
-        r"([A-Z]{3})\s+"
-        r"([0-2]\d:[0-5]\d)"
-        r"(?:\s*\|\s*([0-9]+(?:[.,][0-9]+)?)\s*([A-Z]{3}))?",
-        flags=re.IGNORECASE,
+def flight_from_key(key, origin, destination):
+    if not key:
+        return None
+    match = re.search(
+        r"(FR)~?(\d{1,5}).*?([A-Z]{3})~(\d{2}/\d{2}/\d{4} \d{2}:\d{2})~"
+        r"([A-Z]{3})~(\d{2}/\d{2}/\d{4} \d{2}:\d{2})",
+        key,
     )
-
-    flights = []
-
-    for match in pattern.finditer(text):
-        flight_number = (
-            match.group(1)
-            .replace(" ", "")
-            .upper()
-        )
-
-        origin = match.group(2).upper()
-        departure_text = match.group(3)
-        destination = match.group(4).upper()
-        arrival_text = match.group(5)
-
-        price_text = match.group(6)
-        currency = match.group(7)
-
-        if origin != expected_origin:
-            continue
-
-        if destination != expected_destination:
-            continue
-
-        departure_timezone = airport_timezone(origin)
-        arrival_timezone = airport_timezone(destination)
-
-        departure_time = datetime.strptime(
-            departure_text,
-            "%H:%M",
-        ).time()
-
-        arrival_time = datetime.strptime(
-            arrival_text,
-            "%H:%M",
-        ).time()
-
-        departure = datetime.combine(
-            flight_date,
-            departure_time,
-            tzinfo=departure_timezone,
-        )
-
-        arrival = datetime.combine(
-            flight_date,
-            arrival_time,
-            tzinfo=arrival_timezone,
-        )
-
-        # Sammenlign i UTC for at afgøre, om ankomsten er
-        # efter midnat lokal tid.
-        if (
-            arrival.astimezone(timezone.utc)
-            <= departure.astimezone(timezone.utc)
-        ):
-            arrival += timedelta(days=1)
-
-        price = None
-
-        if price_text:
-            price = price_text.replace(",", ".")
-
-        flights.append(
-            {
-                "flight_number": flight_number,
-                "origin": origin,
-                "destination": destination,
-                "departure": departure,
-                "arrival": arrival,
-                "price": price,
-                "currency": currency,
-            }
-        )
-
-    return flights
+    if not match:
+        return None
+    key_origin, dep_text, key_destination, arr_text = match.group(3), match.group(4), match.group(5), match.group(6)
+    if key_origin != origin or key_destination != destination:
+        return None
+    dep = datetime.strptime(dep_text, "%m/%d/%Y %H:%M").replace(tzinfo=airport_tz(origin))
+    arr = datetime.strptime(arr_text, "%m/%d/%Y %H:%M").replace(tzinfo=airport_tz(destination))
+    return "FR" + match.group(2), dep, arr
 
 
-async def search_route_day(
-    session,
-    semaphore,
-    origin,
-    destination,
-    flight_date,
-):
-    """
-    Henter afgange for én rute på én bestemt dato.
-    """
+def parse_flight(item, origin, destination):
+    number = str(item.get("flightNumber") or item.get("flightNo") or "").replace(" ", "")
+    local_times = item.get("time") or item.get("times") or []
+    utc_times = item.get("timeUTC") or []
+    dep = arr = None
 
-    async with semaphore:
-        arguments = {
-            "outboundDepartureDateFrom": (
-                flight_date.isoformat()
-            ),
-            "outboundDepartureDateTo": (
-                flight_date.isoformat()
-            ),
-            "departureIataCodes": [origin],
-            "arrivalIataCodes": [destination],
-            "currency": "EUR",
-            "limit": 50,
-            "pageNumber": 0,
-        }
+    if isinstance(local_times, list) and len(local_times) >= 2:
+        dep = parse_dt(local_times[0], airport_tz(origin))
+        arr = parse_dt(local_times[1], airport_tz(destination))
+    elif isinstance(utc_times, list) and len(utc_times) >= 2:
+        dep = parse_dt(utc_times[0], timezone.utc)
+        arr = parse_dt(utc_times[1], timezone.utc)
+        if dep:
+            dep = dep.astimezone(airport_tz(origin))
+        if arr:
+            arr = arr.astimezone(airport_tz(destination))
 
-        # Ét ekstra forsøg ved midlertidig MCP/Ryanair-fejl.
-        for attempt in range(2):
+    if not number or not dep or not arr:
+        fallback = flight_from_key(item.get("flightKey", ""), origin, destination)
+        if fallback:
+            number, dep, arr = fallback
+
+    if not number or not dep or not arr:
+        return None
+    if not number.startswith("FR"):
+        number = "FR" + number
+
+    fare = None
+    regular = item.get("regularFare") or {}
+    fares = regular.get("fares") or []
+    if fares:
+        fare = fares[0].get("amount")
+
+    return {
+        "flight_number": number,
+        "origin": origin,
+        "destination": destination,
+        "departure": dep,
+        "arrival": arr,
+        "price": fare,
+    }
+
+
+def fetch_window(session, origin, destination, start_date):
+    params = {
+        "ADT": 1, "CHD": 0, "INF": 0, "TEEN": 0, "Disc": 0,
+        "DateIn": "", "DateOut": start_date.isoformat(),
+        "Origin": origin, "Destination": destination,
+        "RoundTrip": "false", "ToUs": "AGREED",
+        "IncludeConnectingFlights": "false", "promoCode": "",
+        "FlexDaysBeforeOut": 0, "FlexDaysOut": WINDOW_DAYS,
+        "FlexDaysBeforeIn": 0, "FlexDaysIn": 0,
+    }
+    last_error = None
+    for attempt in range(MAX_RETRIES):
+        try:
+            response = session.get(API_URL, params=params, timeout=TIMEOUT_SECONDS)
+            response.raise_for_status()
+            return response.json()
+        except (requests.RequestException, ValueError) as exc:
+            last_error = str(exc)
+            time.sleep(2 ** attempt)
+    raise RuntimeError(last_error or "Unknown availability error")
+
+
+def collect_flights():
+    today = date.today()
+    last_date = today + timedelta(days=DAYS_AHEAD)
+    flights, errors = [], []
+    session = requests.Session()
+    session.headers.update({
+        "Accept": "application/json",
+        "User-Agent": "Mozilla/5.0 (compatible; hfedder-ryanair-calendar/1.0)",
+    })
+
+    for origin, destination in ROUTES:
+        cursor = today
+        while cursor <= last_date:
             try:
-                result = await session.call_tool(
-                    "pricing-get-cheapest-one-way-flight",
-                    arguments=arguments,
-                )
-
-                text = extract_result_text(result)
-
-                # Tool-fejl kan returneres som tekst.
-                lower_text = text.lower()
-
-                if (
-                    "failed to fetch" in lower_text
-                    or "bad request" in lower_text
-                    or "tool not found" in lower_text
-                ):
-                    raise RuntimeError(text)
-
-                flights = parse_flights(
-                    text,
-                    flight_date,
-                    origin,
-                    destination,
-                )
-
-                return {
-                    "flights": flights,
-                    "error": None,
-                }
-
+                payload = fetch_window(session, origin, destination, cursor)
+                for trip in payload.get("trips", []):
+                    if trip.get("origin") != origin or trip.get("destination") != destination:
+                        continue
+                    for day in trip.get("dates", []):
+                        for item in day.get("flights", []):
+                            flight = parse_flight(item, origin, destination)
+                            if flight and today <= flight["departure"].date() <= last_date:
+                                flights.append(flight)
             except Exception as exc:
-                if attempt == 0:
-                    await asyncio.sleep(2)
-                    continue
+                errors.append(f"{origin}->{destination} {cursor}: {exc}")
+            cursor += timedelta(days=WINDOW_DAYS + 1)
+            time.sleep(0.15)
+    return flights, errors
 
-                return {
-                    "flights": [],
-                    "error": (
-                        f"{flight_date} "
-                        f"{origin}->{destination}: {exc}"
-                    ),
-                }
+
+def deduplicate(flights):
+    unique = {}
+    for f in flights:
+        key = (f["flight_number"], f["origin"], f["destination"], f["departure"].isoformat())
+        unique[key] = f
+    return sorted(unique.values(), key=lambda f: f["departure"])
+
 
 def make_uid(flight):
-    departure_date = flight["departure"].strftime("%Y%m%d")
-
-    flight_number = flight["flight_number"]
-    origin = flight["origin"]
-    destination = flight["destination"]
-
-    return (
-        flight_number
-        + "-"
-        + origin
-        + "-"
-        + destination
-        + "-"
-        + departure_date
-        + "@hfedder-ryanair-calendar"
-    )
-
-def build_description(flight):
-    origin = flight["origin"]
-    destination = flight["destination"]
-    price = flight["price"]
-    currency = flight["currency"]
-
-    parts = [
-        "Ryanair-afgang automatisk hentet via "
-        "Ryanairs offentlige MCP-tjeneste.",
-        "Rute: " + origin + " -> " + destination + ".",
-    ]
-
-    if price and currency:
-        parts.append(
-            "Observeret pris ved seneste opdatering: "
-            + price
-            + " "
-            + currency
-            + "."
-        )
-
-    parts.append(
-        "Pris og flyvetid kan ændres. Kontrollér altid "
-        "den konkrete afgang hos Ryanair før booking."
-    )
-
-    return " ".join(parts)
+    return "-".join([
+        flight["flight_number"], flight["origin"], flight["destination"],
+        flight["departure"].strftime("%Y%m%dT%H%M")
+    ]) + "@hfedder-ryanair-calendar"
 
 
 def build_ics(flights):
-    generated = datetime.now(timezone.utc)
-
+    now = datetime.now(timezone.utc)
     lines = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        (
-            "PRODID:-//hfedder//"
-            "Ryanair Piemonte Calendar//DA"
-        ),
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
+        "BEGIN:VCALENDAR", "VERSION:2.0",
+        "PRODID:-//hfedder//Ryanair Piemonte Calendar//DA",
+        "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
         "X-WR-CALNAME:Ryanair Piemonte - CPH",
         "X-WR-CALDESC:Ryanair afgange mellem København og Piemonte",
-        "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
-        "X-PUBLISHED-TTL:PT6H",
+        "REFRESH-INTERVAL;VALUE=DURATION:PT6H", "X-PUBLISHED-TTL:PT6H",
     ]
-
-    for flight in sorted(
-        flights,
-        key=lambda item: (
-            item["departure"],
-            item["origin"],
-            item["flight_number"],
-        ),
-    ):
-        departure = flight["departure"]
-        arrival = flight["arrival"]
-
-        departure_timezone_name = (
-            "Europe/Copenhagen"
-            if flight["origin"] == "CPH"
-            else "Europe/Rome"
-        )
-
-        arrival_timezone_name = (
-            "Europe/Copenhagen"
-            if flight["destination"] == "CPH"
-            else "Europe/Rome"
-        )
-
-        flight_number = flight["flight_number"]
-        origin = flight["origin"]
-        destination = flight["destination"]
-
-        summary = (
-            "✈ "
-            + flight_number
-            + " "
-            + origin
-            + " -> "
-            + destination
-        )
-
-        location = origin + " -> " + destination
-
-
-        description = build_description(flight)
-
-        event_lines = [
-            "BEGIN:VEVENT",
-            f"UID:{make_uid(flight)}",
-            f"DTSTAMP:{generated:%Y%m%dT%H%M%SZ}",
-            (
-                f"LAST-MODIFIED:"
-                f"{generated:%Y%m%dT%H%M%SZ}"
-            ),
-            (
-                f"DTSTART;TZID={departure_timezone_name}:"
-                f"{departure:%Y%m%dT%H%M%S}"
-            ),
-            (
-                f"DTEND;TZID={arrival_timezone_name}:"
-                f"{arrival:%Y%m%dT%H%M%S}"
-            ),
-            f"SUMMARY:{escape_ics(summary)}",
-            f"LOCATION:{escape_ics(location)}",
-            f"DESCRIPTION:{escape_ics(description)}",
-            "STATUS:CONFIRMED",
-            "TRANSP:TRANSPARENT",
-            "END:VEVENT",
-        ]
-
-        lines.extend(event_lines)
-
+    for f in flights:
+        dep_tz = "Europe/Copenhagen" if f["origin"] == "CPH" else "Europe/Rome"
+        arr_tz = "Europe/Copenhagen" if f["destination"] == "CPH" else "Europe/Rome"
+        summary = "✈ " + f["flight_number"] + " " + f["origin"] + " -> " + f["destination"]
+        description = "Alle bookbare afgange hentet fra Ryanair availability. Kontrollér altid Ryanair før booking."
+        if f.get("price") is not None:
+            description += " Observeret pris: " + str(f["price"]) + " EUR."
+        lines.extend([
+            "BEGIN:VEVENT", "UID:" + make_uid(f),
+            "DTSTAMP:" + now.strftime("%Y%m%dT%H%M%SZ"),
+            "LAST-MODIFIED:" + now.strftime("%Y%m%dT%H%M%SZ"),
+            "DTSTART;TZID=" + dep_tz + ":" + f["departure"].strftime("%Y%m%dT%H%M%S"),
+            "DTEND;TZID=" + arr_tz + ":" + f["arrival"].strftime("%Y%m%dT%H%M%S"),
+            "SUMMARY:" + escape_ics(summary),
+            "LOCATION:" + escape_ics(f["origin"] + " -> " + f["destination"]),
+            "DESCRIPTION:" + escape_ics(description),
+            "STATUS:CONFIRMED", "TRANSP:TRANSPARENT", "END:VEVENT",
+        ])
     lines.append("END:VCALENDAR")
-
-    return (
-        "\r\n".join(
-            fold_ics_line(line)
-            for line in lines
-        )
-        + "\r\n"
-    )
+    return "\r\n".join(fold_ics_line(line) for line in lines) + "\r\n"
 
 
-def remove_duplicates(flights):
-    """
-    Fjerner dubletter, men bevarer separate afgange samme dag,
-    hvis flynummeret er forskelligt.
-    """
+def validate(flights, errors):
+    counts = {origin + "->" + destination: 0 for origin, destination in ROUTES}
+    for f in flights:
+        counts[f["origin"] + "->" + f["destination"]] += 1
 
-    unique = {}
+    checks = {
+        "minimum_total_100": len(flights) >= 100,
+        "all_routes_present": all(value > 0 for value in counts.values()),
+        "turin_plausible": 40 <= counts["TRN->CPH"] <= 250 and 40 <= counts["CPH->TRN"] <= 250,
+        "bergamo_plausible": counts["BGY->CPH"] >= 250 and counts["CPH->BGY"] >= 250,
+        "errors_below_10_percent": len(errors) <= 22,
+    }
+    report = {
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "publish_requested": PUBLISH,
+        "total_flights": len(flights),
+        "route_counts": counts,
+        "request_errors": errors,
+        "checks": checks,
+        "validation_passed": all(checks.values()),
+    }
+    REPORT_FILE.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(json.dumps(report, indent=2, ensure_ascii=False))
+    if not report["validation_passed"]:
+        raise RuntimeError("Safety stop: candidate calendar failed validation; production ICS was not changed")
+    return report
 
-    for flight in flights:
-        key = (
-            flight["flight_number"],
-            flight["origin"],
-            flight["destination"],
-            flight["departure"].date(),
-        )
 
-        unique[key] = flight
+def main():
+    flights, errors = collect_flights()
+    flights = deduplicate(flights)
+    validate(flights, errors)
 
-    return list(unique.values())
+    candidate = build_ics(flights)
+    CANDIDATE_FILE.write_text(candidate, encoding="utf-8", newline="")
+    print("Candidate calendar written with", len(flights), "flights")
 
+    if not PUBLISH:
+        print("SAFE MODE: PUBLISH_CALENDAR is not true. Production ICS was not changed.")
+        return
 
-async def main():
-    today = date.today()
-    last_date = today + timedelta(days=DAYS_AHEAD)
-
-    semaphore = asyncio.Semaphore(
-        MAX_CONCURRENT_REQUESTS
-    )
-
-    all_flights = []
-    errors = []
-
-    async with streamable_http_client(
-        MCP_URL
-    ) as (
-        read_stream,
-        write_stream,
-    ):
-        async with ClientSession(
-            read_stream,
-            write_stream,
-        ) as session:
-            await session.initialize()
-
-            tasks = []
-
-            current_date = today
-
-            while current_date <= last_date:
-                for origin, destination in ROUTES:
-                    tasks.append(
-                        search_route_day(
-                            session,
-                            semaphore,
-                            origin,
-                            destination,
-                            current_date,
-                        )
-                    )
-
-                current_date += timedelta(days=1)
-
-            print(
-                f"Searching {len(tasks)} route/date combinations"
-            )
-
-            # Kør i grupper for at holde memory og forbindelsen stabil.
-            batch_size = 40
-
-            for start in range(0, len(tasks), batch_size):
-                batch = tasks[
-                    start:start + batch_size
-                ]
-
-                batch_results = await asyncio.gather(
-                    *batch
-                )
-
-                for result in batch_results:
-                    all_flights.extend(
-                        result["flights"]
-                    )
-
-                    if result["error"]:
-                        errors.append(
-                            result["error"]
-                        )
-
-                print(
-                    f"Completed "
-                    f"{min(start + batch_size, len(tasks))}"
-                    f"/{len(tasks)} searches"
-                )
-
-    flights = remove_duplicates(all_flights)
-
-    print(
-        f"Found {len(flights)} unique flights"
-    )
-
-    route_counts = {}
-
-    for origin, destination in ROUTES:
-        count = sum(
-            1
-            for flight in flights
-            if flight["origin"] == origin
-            and flight["destination"] == destination
-        )
-
-        route_counts[
-            f"{origin}->{destination}"
-        ] = count
-
-        print(
-            f"{origin}->{destination}: "
-            f"{count} flight(s)"
-        )
-
-    print(
-        f"Request errors: {len(errors)}"
-    )
-
-    # Vis højst de første 20 fejl i GitHub-loggen.
-    for error in errors[:20]:
-        print(f"WARNING: {error}")
-
-    # Sikkerhedsstop 1:
-    # Overskriv aldrig den eksisterende kalender med for få fly.
-    if len(flights) < MINIMUM_FLIGHTS:
-        raise RuntimeError(
-            "Safety stop: only "
-            f"{len(flights)} flights were found. "
-            "The existing ICS calendar was not replaced."
-        )
-
-    # Sikkerhedsstop 2:
-    # Der skal være mindst én afgang i begge geografiske retninger.
-    italy_to_denmark = sum(
-        route_counts.get(route, 0)
-        for route in (
-            "TRN->CPH",
-            "BGY->CPH",
-        )
-    )
-
-    denmark_to_italy = sum(
-        route_counts.get(route, 0)
-        for route in (
-            "CPH->TRN",
-            "CPH->BGY",
-        )
-    )
-
-    if italy_to_denmark == 0:
-        raise RuntimeError(
-            "Safety stop: no Italy-to-Denmark flights found. "
-            "The existing ICS calendar was not replaced."
-        )
-
-    if denmark_to_italy == 0:
-        raise RuntimeError(
-            "Safety stop: no Denmark-to-Italy flights found. "
-            "The existing ICS calendar was not replaced."
-        )
-
-    # Sikkerhedsstop 3:
-    # Undgå overskrivning ved omfattende API-problemer.
-    if len(errors) > 200:
-        raise RuntimeError(
-            "Safety stop: too many Ryanair request errors "
-            f"({len(errors)}). "
-            "The existing ICS calendar was not replaced."
-        )
-
-    ics_content = build_ics(flights)
-
-    OUTPUT_FILE.write_text(
-        ics_content,
-        encoding="utf-8",
-        newline="",
-    )
-
-    print(
-        f"ICS calendar updated with "
-        f"{len(flights)} flights."
-    )
+    if OUTPUT_FILE.exists():
+        shutil.copy2(OUTPUT_FILE, BACKUP_FILE)
+    temp_file = OUTPUT_FILE.with_suffix(".ics.tmp")
+    temp_file.write_text(candidate, encoding="utf-8", newline="")
+    temp_file.replace(OUTPUT_FILE)
+    print("Production ICS published atomically; previous file backed up")
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
