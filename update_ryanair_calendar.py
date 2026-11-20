@@ -276,28 +276,31 @@ async def main():
         ) as session:
 
             await session.initialize()
+
             result = await session.call_tool(
-    "pricing-get-cheapest-one-way-flight",
-    arguments={
-        "outboundDepartureDateFrom": "2026-11-20",
-        "outboundDepartureDateTo": "2026-11-27",
-        "departureIataCodes": "TRN",
-        "arrivalIataCodes": "CPH",
-        "currency": "EUR",
-        "limit": 50,
-        "pageNumber": 0,
-    },
-)
+                "pricing-get-cheapest-one-way-flight",
+                arguments={
+                    "outboundDepartureDateFrom": "2026-11-20",
+                    "outboundDepartureDateTo": "2026-11-27",
+                    "departureIataCodes": "TRN",
+                    "arrivalIataCodes": "CPH",
+                    "currency": "EUR",
+                    "limit": 50,
+                    "pageNumber": 0,
+                },
+            )
 
-print("=== RYANAIR TEST RESULT ===")
+            print("=== RYANAIR TEST RESULT ===")
 
-for item in result.content:
-    if hasattr(item, "text"):
-        print(item.text)
+            for item in result.content:
+                if hasattr(item, "text"):
+                    print(item.text)
 
-print("=== END TEST RESULT ===")
+            print("=== END TEST RESULT ===")
 
-raise RuntimeError("Diagnostic stop after Ryanair test")
+            raise RuntimeError(
+                "Diagnostic stop after Ryanair test"
+            )
 
             current = today
 
