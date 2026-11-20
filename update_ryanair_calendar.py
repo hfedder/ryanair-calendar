@@ -276,6 +276,18 @@ async def main():
         ) as session:
 
             await session.initialize()
+            tools = await session.list_tools()
+
+            print("=== AVAILABLE RYANAIR MCP TOOLS ===")
+
+            for tool in tools.tools:
+                print(tool.name)
+
+            print("=== END TOOL LIST ===")
+
+            raise RuntimeError(
+                "Diagnostic stop after listing MCP tools"
+            )
 
             current = today
 
