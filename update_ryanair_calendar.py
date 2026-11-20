@@ -283,7 +283,7 @@ async def main():
 
             for tool in tools.tools:
                 if tool.name == "pricing-get-cheapest-one-way-flight":
-                    print(tool.input_Schema)
+                    print(tool.input_schema)
 
             print("=== END TOOL SCHEMA ===")
 
