@@ -1,0 +1,28 @@
+{
+  "generated_at_utc": "2026-11-20T14:10:17.450340+00:00",
+  "publish_requested": false,
+  "mode": "hybrid-mcp-with-optional-availability-supplement",
+  "total_flights": 950,
+  "route_counts": {
+    "TRN->CPH": 110,
+    "BGY->CPH": 365,
+    "CPH->TRN": 110,
+    "CPH->BGY": 365
+  },
+  "availability_supplement_flights": 0,
+  "mcp_error_count": 0,
+  "availability_errors": [
+    "TRN->CPH: availability disabled after HTTP 409",
+    "BGY->CPH: availability disabled after HTTP 409",
+    "CPH->TRN: availability disabled after HTTP 409",
+    "CPH->BGY: availability disabled after HTTP 409"
+  ],
+  "checks": {
+    "minimum_total_100": true,
+    "all_routes_present": true,
+    "turin_plausible": true,
+    "bergamo_plausible": true,
+    "mcp_errors_below_10_percent": true
+  },
+  "validation_passed": true
+}
