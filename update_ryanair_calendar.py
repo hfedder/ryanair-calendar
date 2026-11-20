@@ -260,27 +260,23 @@ async def search_route_day(
                     ),
                 }
 
-
 def make_uid(flight):
-    """
-    Klokkeslættet indgår ikke i UID.
+    departure_date = flight["departure"].strftime("%Y%m%d")
 
-    Hvis Ryanair ændrer tiden, kan Outlook derfor opdatere
-    den eksisterende kalenderpost frem for at oprette en dublet.
-    """
-
-    departure_date = flight["departure"].strftime(
-        "%Y%m%d"
-    )
+    flight_number = flight["flight_number"]
+    origin = flight["origin"]
+    destination = flight["destination"]
 
     return (
-        f"{flight['flight_number']}-"
-        f"{flight['origin']}-"
-        f"{flight['destination']}-"
-        f"{departure_date}"
-        "@hfedder-ryanair-calendar"
+        flight_number
+        + "-"
+        + origin
+        + "-"
+        + destination
+        + "-"
+        + departure_date
+        + "@hfedder-ryanair-calendar"
     )
-
 
 def build_description(flight):
     parts = [
