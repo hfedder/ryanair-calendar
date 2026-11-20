@@ -1,14 +1,11 @@
 name: Update Ryanair calendar
 
 on:
-  # Giver os en "Run workflow"-knap til manuel test
   workflow_dispatch:
 
-  # Automatisk kørsel hver nat kl. 03:17 UTC
   schedule:
     - cron: "17 3 * * *"
 
-# Tillader GitHub Action at opdatere ICS-filen i repositoryet
 permissions:
   contents: write
 
@@ -28,18 +25,36 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install "mcp>=1.0"
+          pip install requests
 
-      - name: Update Ryanair calendar
+      - name: Update Ryanair calendar in safe mode
         run: python update_ryanair_calendar.py
+        env:
+          PUBLISH_CALENDAR: "false"
 
-      - name: Check generated calendar
+      - name: Check candidate calendar and report
         run: |
-          test -s Ryanair_TRN_BGY_CPH_verificerede_afgange.ics
-          echo "ICS calendar exists and is not empty"
-          grep -c "BEGIN:VEVENT" Ryanair_TRN_BGY_CPH_verificerede_afgange.ics
+          test -s Ryanair_TRN_BGY_CPH_candidate.ics
+          test -s ryanair_validation_report.json
 
-      - name: Commit calendar if changed
+          echo "Candidate calendar exists and is not empty"
+          echo "Number of candidate events:"
+          grep -c "BEGIN:VEVENT" Ryanair_TRN_BGY_CPH_candidate.ics
+
+          echo "Validation report:"
+          cat ryanair_validation_report.json
+
+      - name: Commit validation files
         run: |
           git config user.name "Ryanair Calendar Bot"
           git config user.email "actions@users.noreply.github.com"
+
+          git add Ryanair_TRN_BGY_CPH_candidate.ics
+          git add ryanair_validation_report.json
+
+          if git diff --cached --quiet; then
+            echo "No candidate changes found"
+          else
+            git commit -m "Validate Ryanair all-flights candidate"
+            git push
+          fi
