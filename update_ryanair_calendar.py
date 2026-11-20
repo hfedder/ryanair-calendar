@@ -274,10 +274,10 @@ def make_uid(flight):
     )
 
     return (
-        f'{flight["flight_number"]}-'
-        f'{flight["origin"]}-'
-        f'{flight["destination"]}-'
-        f'{departure_date}'
+        f"{flight['flight_number']}-"
+        f"{flight['origin']}-"
+        f"{flight['destination']}-"
+        f"{departure_date}"
         "@hfedder-ryanair-calendar"
     )
 
