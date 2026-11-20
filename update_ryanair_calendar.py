@@ -279,19 +279,24 @@ def make_uid(flight):
     )
 
 def build_description(flight):
+    origin = flight["origin"]
+    destination = flight["destination"]
+    price = flight["price"]
+    currency = flight["currency"]
+
     parts = [
         "Ryanair-afgang automatisk hentet via "
         "Ryanairs offentlige MCP-tjeneste.",
-        (
-            f'Rute: {flight["origin"]} '
-            f'→ {flight["destination"]}.'
-        ),
+        "Rute: " + origin + " -> " + destination + ".",
     ]
 
-    if flight["price"] and flight["currency"]:
+    if price and currency:
         parts.append(
             "Observeret pris ved seneste opdatering: "
-            f'{flight["price"]} {flight["currency"]}.'
+            + price
+            + " "
+            + currency
+            + "."
         )
 
     parts.append(
