@@ -38,7 +38,14 @@ RULES = [
     ("FR2989", "CPH", "BGY", 5, "06:00", "08:10", "2026-11-21", "2026-11-30"),
     ("FR2989", "CPH", "BGY", 6, "06:55", "09:05", "2026-11-21", "2026-11-30"),
 
-    # CPH -> TRN intentionally left empty until its current Ryanair flight number/times are verified.
+    # CPH -> TRN, FR5088
+    ("FR5088", "CPH", "TRN", 0, "06:45", "08:55", "2026-11-21", "2027-03-22"),
+    ("FR5088", "CPH", "TRN", 5, "05:50", "08:00", "2026-11-21", "2027-03-27"),
+    ("FR5088", "CPH", "TRN", 1, "13:40", "15:50", "2026-12-22", "2026-12-29"),
+    ("FR5088", "CPH", "TRN", 3, "08:45", "10:55", "2026-12-24", "2026-12-31"),
+    ("FR5088", "CPH", "TRN", 3, "19:05", "21:15", "2027-03-25", "2027-03-25"),
+    ("FR5088", "CPH", "TRN", 6, "06:00", "08:10", "2027-03-28", "2027-10-24"),
+    ("FR5088", "CPH", "TRN", 2, "11:30", "13:40", "2027-03-31", "2027-10-27"),
 ]
 
 
@@ -123,8 +130,6 @@ def main():
         shutil.copy2(OUTPUT_FILE, BACKUP_FILE)
     OUTPUT_FILE.write_text(build_ics(flights), encoding="utf-8", newline="")
     print(f"Published {len(flights)} flights to {OUTPUT_FILE}")
-    if counts["CPH->TRN"] == 0:
-        print("WARNING: CPH->TRN is still awaiting verified schedule data and is not published.")
 
 
 if __name__ == "__main__":
