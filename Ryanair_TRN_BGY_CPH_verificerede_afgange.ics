@@ -1,1591 +1,2570 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Microsoft Copilot//Ryanair TRN BGY CPH//DA
+PRODID:-//hfedder//Ryanair static verified four routes//DA
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:Ryanair Italien - København
-X-WR-TIMEZONE:Europe/Rome
+X-WR-CALNAME:Ryanair Piemonte - CPH
+X-WR-CALDESC:Verificerede Ryanair-afgange CPH-TRN/BGY begge retninger
 BEGIN:VEVENT
-UID:FR1784-20261119-1435-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261119T143500
-DTEND;TZID=Europe/Copenhagen:20261119T164500
-SUMMARY:✈ FR1784 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR1784. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Dato og tid eksplicit verificeret
+UID:FR5088-CPH-TRN-20261121-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261121T055000
+DTEND;TZID=Europe/Rome:20261121T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261119-2155-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261119T215500
-DTEND;TZID=Europe/Copenhagen:20261120T000500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+UID:FR2989-CPH-BGY-20261121-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261121T060000
+DTEND;TZID=Europe/Rome:20261121T081000
+SUMMARY:✈ FR2989 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR2989. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR1784-20261120-1030-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261120T103000
-DTEND;TZID=Europe/Copenhagen:20261120T124000
-SUMMARY:✈ FR1784 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR1784. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Dato og tid eksplicit verificeret
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-UID:FR2990-20261120-1945-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261120T194500
-DTEND;TZID=Europe/Copenhagen:20261120T215500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-UID:FR5089-20261121-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261121-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261121T082500
 DTEND;TZID=Europe/Copenhagen:20261121T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261121-0835-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR2990-BGY-CPH-20261121-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261121T083500
 DTEND;TZID=Europe/Copenhagen:20261121T104500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR2990 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR2990. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR1784-20261121-1900-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR1785-CPH-BGY-20261121-1625@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261121T162500
+DTEND;TZID=Europe/Rome:20261121T183500
+SUMMARY:✈ FR1785 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR1785. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR1784-BGY-CPH-20261121-1900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261121T190000
 DTEND;TZID=Europe/Copenhagen:20261121T211000
-SUMMARY:✈ FR1784 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR1784. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Dato og tid eksplicit verificeret
+SUMMARY:✈ FR1784 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: ZborDirect/Flight.info FR1784. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261122-0930-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR2989-CPH-BGY-20261122-0655@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261122T065500
+DTEND;TZID=Europe/Rome:20261122T090500
+SUMMARY:✈ FR2989 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR2989. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR2990-BGY-CPH-20261122-0930@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261122T093000
 DTEND;TZID=Europe/Copenhagen:20261122T114000
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret søndagsprogram
+SUMMARY:✈ FR2990 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR2990. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR1784-20261122-2050-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR1785-CPH-BGY-20261122-1740@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261122T174000
+DTEND;TZID=Europe/Rome:20261122T195000
+SUMMARY:✈ FR1785 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR1785. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR1784-BGY-CPH-20261122-2050@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261122T205000
 DTEND;TZID=Europe/Copenhagen:20261122T230000
-SUMMARY:✈ FR1784 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR1784. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Dato og tid eksplicit verificeret
+SUMMARY:✈ FR1784 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: ZborDirect/Flight.info FR1784. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261123-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20261123-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261123T064500
+DTEND;TZID=Europe/Rome:20261123T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20261123-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261123T092000
 DTEND;TZID=Europe/Copenhagen:20261123T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR1784-20261123-1430-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR1785-CPH-BGY-20261123-1155@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261123T115500
+DTEND;TZID=Europe/Rome:20261123T140500
+SUMMARY:✈ FR1785 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR1785. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR1784-BGY-CPH-20261123-1430@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261123T143000
 DTEND;TZID=Europe/Copenhagen:20261123T163500
-SUMMARY:✈ FR1784 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR1784. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Dato og tid eksplicit verificeret
+SUMMARY:✈ FR1784 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: ZborDirect/Flight.info FR1784. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261123-2200-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR2989-CPH-BGY-20261123-1925@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261123T192500
+DTEND;TZID=Europe/Rome:20261123T213500
+SUMMARY:✈ FR2989 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR2989. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR2990-BGY-CPH-20261123-2200@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261123T220000
 DTEND;TZID=Europe/Copenhagen:20261124T001000
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR2990 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR2990. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR1784-20261124-1025-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR1785-CPH-BGY-20261124-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261124T064500
+DTEND;TZID=Europe/Rome:20261124T085500
+SUMMARY:✈ FR1785 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR1785. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR1784-BGY-CPH-20261124-1025@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261124T102500
 DTEND;TZID=Europe/Copenhagen:20261124T123500
-SUMMARY:✈ FR1784 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR1784. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Dato og tid eksplicit verificeret
+SUMMARY:✈ FR1784 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: ZborDirect/Flight.info FR1784. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261125-1935-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR1785-CPH-BGY-20261125-0620@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261125T062000
+DTEND;TZID=Europe/Rome:20261125T083000
+SUMMARY:✈ FR1785 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR1785. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR1784-BGY-CPH-20261125-0855@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Rome:20261125T085500
+DTEND;TZID=Europe/Copenhagen:20261125T110500
+SUMMARY:✈ FR1784 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: ZborDirect/Flight.info FR1784. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR2989-CPH-BGY-20261125-1635@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261125T163500
+DTEND;TZID=Europe/Rome:20261125T184500
+SUMMARY:✈ FR2989 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR2989. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR2990-BGY-CPH-20261125-1935@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261125T193500
 DTEND;TZID=Europe/Copenhagen:20261125T214500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR2990 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR2990. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261126-2155-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR1785-CPH-BGY-20261126-1200@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261126T120000
+DTEND;TZID=Europe/Rome:20261126T141000
+SUMMARY:✈ FR1785 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR1785. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR1784-BGY-CPH-20261126-1435@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Rome:20261126T143500
+DTEND;TZID=Europe/Copenhagen:20261126T164500
+SUMMARY:✈ FR1784 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: ZborDirect/Flight.info FR1784. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR2989-CPH-BGY-20261126-1920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261126T192000
+DTEND;TZID=Europe/Rome:20261126T213000
+SUMMARY:✈ FR2989 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR2989. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR2990-BGY-CPH-20261126-2155@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261126T215500
 DTEND;TZID=Europe/Copenhagen:20261127T000500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR2990 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR2990. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261127-1945-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR1784-BGY-CPH-20261127-1030@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Rome:20261127T103000
+DTEND;TZID=Europe/Copenhagen:20261127T124000
+SUMMARY:✈ FR1784 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: ZborDirect/Flight.info FR1784. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR2990-BGY-CPH-20261127-1945@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261127T194500
 DTEND;TZID=Europe/Copenhagen:20261127T215500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR2990 BGY -> CPH
+LOCATION:BGY -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR2990. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261128-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR2989-CPH-BGY-20261127-2220@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261127T222000
+DTEND;TZID=Europe/Rome:20261128T003000
+SUMMARY:✈ FR2989 CPH -> BGY
+LOCATION:CPH -> BGY
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flightradar24 FR2989. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20261128-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261128T055000
+DTEND;TZID=Europe/Rome:20261128T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20261128-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261128T082500
 DTEND;TZID=Europe/Copenhagen:20261128T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261128-0835-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261128T083500
-DTEND;TZID=Europe/Copenhagen:20261128T104500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+UID:FR5088-CPH-TRN-20261130-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261130T064500
+DTEND;TZID=Europe/Rome:20261130T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261129-0930-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261129T093000
-DTEND;TZID=Europe/Copenhagen:20261129T114000
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret søndagsprogram
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-UID:FR5089-20261130-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261130-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261130T092000
 DTEND;TZID=Europe/Copenhagen:20261130T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261130-2200-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261130T220000
-DTEND;TZID=Europe/Copenhagen:20261201T001000
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+UID:FR5088-CPH-TRN-20261205-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261205T055000
+DTEND;TZID=Europe/Rome:20261205T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261202-1935-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261202T193500
-DTEND;TZID=Europe/Copenhagen:20261202T214500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-UID:FR2990-20261203-2155-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261203T215500
-DTEND;TZID=Europe/Copenhagen:20261204T000500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-UID:FR5089-20261205-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261205-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261205T082500
 DTEND;TZID=Europe/Copenhagen:20261205T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261205-0835-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261205T083500
-DTEND;TZID=Europe/Copenhagen:20261205T104500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+UID:FR5088-CPH-TRN-20261207-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261207T064500
+DTEND;TZID=Europe/Rome:20261207T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261206-0930-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261206T093000
-DTEND;TZID=Europe/Copenhagen:20261206T114000
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret søndagsprogram
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-UID:FR5089-20261207-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261207-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261207T092000
 DTEND;TZID=Europe/Copenhagen:20261207T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261209-1935-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261209T193500
-DTEND;TZID=Europe/Copenhagen:20261209T214500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+UID:FR5088-CPH-TRN-20261212-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261212T055000
+DTEND;TZID=Europe/Rome:20261212T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261210-2155-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261210T215500
-DTEND;TZID=Europe/Copenhagen:20261211T000500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-UID:FR5089-20261212-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261212-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261212T082500
 DTEND;TZID=Europe/Copenhagen:20261212T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261212-0835-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261212T083500
-DTEND;TZID=Europe/Copenhagen:20261212T104500
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret publiceret køreplan
+UID:FR5088-CPH-TRN-20261214-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261214T064500
+DTEND;TZID=Europe/Rome:20261214T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261213-0930-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261213T093000
-DTEND;TZID=Europe/Copenhagen:20261213T114000
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret søndagsprogram
-STATUS:CONFIRMED
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-UID:FR5089-20261214-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261214-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261214T092000
 DTEND;TZID=Europe/Copenhagen:20261214T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261219-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20261219-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261219T055000
+DTEND;TZID=Europe/Rome:20261219T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20261219-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261219T082500
 DTEND;TZID=Europe/Copenhagen:20261219T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261220-0930-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261220T093000
-DTEND;TZID=Europe/Copenhagen:20261220T114000
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret søndagsprogram
+UID:FR5088-CPH-TRN-20261221-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261221T064500
+DTEND;TZID=Europe/Rome:20261221T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261221-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261221-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261221T092000
 DTEND;TZID=Europe/Copenhagen:20261221T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261222-1105-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261222-1105@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261222T110500
 DTEND;TZID=Europe/Copenhagen:20261222T131500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Ekstra juleafgang
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261224-0610-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20261222-1340@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261222T134000
+DTEND;TZID=Europe/Rome:20261222T155000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20261224-0610@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261224T061000
 DTEND;TZID=Europe/Copenhagen:20261224T082000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Ekstra juleafgang
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261226-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20261224-0845@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261224T084500
+DTEND;TZID=Europe/Rome:20261224T105500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20261226-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261226T055000
+DTEND;TZID=Europe/Rome:20261226T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20261226-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261226T082500
 DTEND;TZID=Europe/Copenhagen:20261226T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20261227-0930-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20261227T093000
-DTEND;TZID=Europe/Copenhagen:20261227T114000
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret søndagsprogram
+UID:FR5088-CPH-TRN-20261228-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261228T064500
+DTEND;TZID=Europe/Rome:20261228T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261228-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261228-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261228T092000
 DTEND;TZID=Europe/Copenhagen:20261228T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261229-1105-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20261229-1105@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261229T110500
 DTEND;TZID=Europe/Copenhagen:20261229T131500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Ekstra juleafgang
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20261231-0610-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20261229-1340@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261229T134000
+DTEND;TZID=Europe/Rome:20261229T155000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20261231-0610@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20261231T061000
 DTEND;TZID=Europe/Copenhagen:20261231T082000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Ekstra juleafgang
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270102-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20261231-0845@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20261231T084500
+DTEND;TZID=Europe/Rome:20261231T105500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270102-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270102T055000
+DTEND;TZID=Europe/Rome:20270102T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270102-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270102T082500
 DTEND;TZID=Europe/Copenhagen:20270102T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR2990-20270103-0930-BGY-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
-DTSTART;TZID=Europe/Rome:20270103T093000
-DTEND;TZID=Europe/Copenhagen:20270103T114000
-SUMMARY:✈ FR2990 BGY → CPH
-LOCATION:Bergamo (BGY) → København (CPH)
-DESCRIPTION:Ryanair FR2990. Bergamo (BGY) til København (CPH). Kun verif
- iceret publiceret afgang. Verificeret søndagsprogram
+UID:FR5088-CPH-TRN-20270104-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270104T064500
+DTEND;TZID=Europe/Rome:20270104T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270104-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270104-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270104T092000
 DTEND;TZID=Europe/Copenhagen:20270104T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270109-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270109-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270109T055000
+DTEND;TZID=Europe/Rome:20270109T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270109-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270109T082500
 DTEND;TZID=Europe/Copenhagen:20270109T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270111-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270111-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270111T064500
+DTEND;TZID=Europe/Rome:20270111T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270111-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270111T092000
 DTEND;TZID=Europe/Copenhagen:20270111T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270116-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270116-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270116T055000
+DTEND;TZID=Europe/Rome:20270116T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270116-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270116T082500
 DTEND;TZID=Europe/Copenhagen:20270116T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270118-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270118-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270118T064500
+DTEND;TZID=Europe/Rome:20270118T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270118-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270118T092000
 DTEND;TZID=Europe/Copenhagen:20270118T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270123-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270123-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270123T055000
+DTEND;TZID=Europe/Rome:20270123T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270123-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270123T082500
 DTEND;TZID=Europe/Copenhagen:20270123T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270125-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270125-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270125T064500
+DTEND;TZID=Europe/Rome:20270125T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270125-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270125T092000
 DTEND;TZID=Europe/Copenhagen:20270125T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270130-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270130-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270130T055000
+DTEND;TZID=Europe/Rome:20270130T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270130-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270130T082500
 DTEND;TZID=Europe/Copenhagen:20270130T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270201-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270201-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270201T064500
+DTEND;TZID=Europe/Rome:20270201T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270201-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270201T092000
 DTEND;TZID=Europe/Copenhagen:20270201T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270206-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270206-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270206T055000
+DTEND;TZID=Europe/Rome:20270206T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270206-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270206T082500
 DTEND;TZID=Europe/Copenhagen:20270206T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270208-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270208-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270208T064500
+DTEND;TZID=Europe/Rome:20270208T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270208-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270208T092000
 DTEND;TZID=Europe/Copenhagen:20270208T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270213-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270213-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270213T055000
+DTEND;TZID=Europe/Rome:20270213T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270213-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270213T082500
 DTEND;TZID=Europe/Copenhagen:20270213T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270215-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270215-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270215T064500
+DTEND;TZID=Europe/Rome:20270215T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270215-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270215T092000
 DTEND;TZID=Europe/Copenhagen:20270215T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270220-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270220-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270220T055000
+DTEND;TZID=Europe/Rome:20270220T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270220-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270220T082500
 DTEND;TZID=Europe/Copenhagen:20270220T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270222-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270222-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270222T064500
+DTEND;TZID=Europe/Rome:20270222T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270222-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270222T092000
 DTEND;TZID=Europe/Copenhagen:20270222T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270227-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270227-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270227T055000
+DTEND;TZID=Europe/Rome:20270227T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270227-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270227T082500
 DTEND;TZID=Europe/Copenhagen:20270227T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270301-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270301-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270301T064500
+DTEND;TZID=Europe/Rome:20270301T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270301-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270301T092000
 DTEND;TZID=Europe/Copenhagen:20270301T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270306-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270306-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270306T055000
+DTEND;TZID=Europe/Rome:20270306T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270306-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270306T082500
 DTEND;TZID=Europe/Copenhagen:20270306T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270308-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270308-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270308T064500
+DTEND;TZID=Europe/Rome:20270308T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270308-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270308T092000
 DTEND;TZID=Europe/Copenhagen:20270308T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270313-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270313-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270313T055000
+DTEND;TZID=Europe/Rome:20270313T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270313-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270313T082500
 DTEND;TZID=Europe/Copenhagen:20270313T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270315-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270315-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270315T064500
+DTEND;TZID=Europe/Rome:20270315T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270315-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270315T092000
 DTEND;TZID=Europe/Copenhagen:20270315T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270320-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270320-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270320T055000
+DTEND;TZID=Europe/Rome:20270320T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270320-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270320T082500
 DTEND;TZID=Europe/Copenhagen:20270320T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270322-0920-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270322-0645@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270322T064500
+DTEND;TZID=Europe/Rome:20270322T085500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270322-0920@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270322T092000
 DTEND;TZID=Europe/Copenhagen:20270322T113000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270325-1630-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270325-1630@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270325T163000
 DTEND;TZID=Europe/Copenhagen:20270325T184000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Enkeltstående overgangsafgang
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270327-0825-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270325-1905@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270325T190500
+DTEND;TZID=Europe/Rome:20270325T211500
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270327-0550@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270327T055000
+DTEND;TZID=Europe/Rome:20270327T080000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270327-0825@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270327T082500
 DTEND;TZID=Europe/Copenhagen:20270327T103500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret publiceret køreplan
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270328-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270328-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270328T060000
+DTEND;TZID=Europe/Rome:20270328T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270328-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270328T083500
 DTEND;TZID=Europe/Copenhagen:20270328T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270331-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270331-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270331T090000
 DTEND;TZID=Europe/Copenhagen:20270331T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270404-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270331-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270331T113000
+DTEND;TZID=Europe/Rome:20270331T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270404-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270404T060000
+DTEND;TZID=Europe/Rome:20270404T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270404-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270404T083500
 DTEND;TZID=Europe/Copenhagen:20270404T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270407-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270407-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270407T090000
 DTEND;TZID=Europe/Copenhagen:20270407T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270411-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270407-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270407T113000
+DTEND;TZID=Europe/Rome:20270407T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270411-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270411T060000
+DTEND;TZID=Europe/Rome:20270411T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270411-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270411T083500
 DTEND;TZID=Europe/Copenhagen:20270411T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270414-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270414-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270414T090000
 DTEND;TZID=Europe/Copenhagen:20270414T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270418-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270414-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270414T113000
+DTEND;TZID=Europe/Rome:20270414T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270418-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270418T060000
+DTEND;TZID=Europe/Rome:20270418T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270418-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270418T083500
 DTEND;TZID=Europe/Copenhagen:20270418T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270421-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270421-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270421T090000
 DTEND;TZID=Europe/Copenhagen:20270421T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270425-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270421-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270421T113000
+DTEND;TZID=Europe/Rome:20270421T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270425-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270425T060000
+DTEND;TZID=Europe/Rome:20270425T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270425-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270425T083500
 DTEND;TZID=Europe/Copenhagen:20270425T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270428-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270428-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270428T090000
 DTEND;TZID=Europe/Copenhagen:20270428T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270502-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270428-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270428T113000
+DTEND;TZID=Europe/Rome:20270428T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270502-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270502T060000
+DTEND;TZID=Europe/Rome:20270502T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270502-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270502T083500
 DTEND;TZID=Europe/Copenhagen:20270502T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270505-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270505-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270505T090000
 DTEND;TZID=Europe/Copenhagen:20270505T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270509-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270505-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270505T113000
+DTEND;TZID=Europe/Rome:20270505T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270509-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270509T060000
+DTEND;TZID=Europe/Rome:20270509T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270509-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270509T083500
 DTEND;TZID=Europe/Copenhagen:20270509T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270512-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270512-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270512T090000
 DTEND;TZID=Europe/Copenhagen:20270512T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270516-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270512-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270512T113000
+DTEND;TZID=Europe/Rome:20270512T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270516-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270516T060000
+DTEND;TZID=Europe/Rome:20270516T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270516-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270516T083500
 DTEND;TZID=Europe/Copenhagen:20270516T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270519-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270519-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270519T090000
 DTEND;TZID=Europe/Copenhagen:20270519T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270523-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270519-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270519T113000
+DTEND;TZID=Europe/Rome:20270519T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270523-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270523T060000
+DTEND;TZID=Europe/Rome:20270523T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270523-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270523T083500
 DTEND;TZID=Europe/Copenhagen:20270523T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270526-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270526-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270526T090000
 DTEND;TZID=Europe/Copenhagen:20270526T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270530-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270526-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270526T113000
+DTEND;TZID=Europe/Rome:20270526T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270530-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270530T060000
+DTEND;TZID=Europe/Rome:20270530T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270530-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270530T083500
 DTEND;TZID=Europe/Copenhagen:20270530T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270602-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270602-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270602T090000
 DTEND;TZID=Europe/Copenhagen:20270602T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270606-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270602-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270602T113000
+DTEND;TZID=Europe/Rome:20270602T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270606-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270606T060000
+DTEND;TZID=Europe/Rome:20270606T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270606-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270606T083500
 DTEND;TZID=Europe/Copenhagen:20270606T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270609-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270609-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270609T090000
 DTEND;TZID=Europe/Copenhagen:20270609T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270613-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270609-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270609T113000
+DTEND;TZID=Europe/Rome:20270609T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270613-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270613T060000
+DTEND;TZID=Europe/Rome:20270613T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270613-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270613T083500
 DTEND;TZID=Europe/Copenhagen:20270613T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270616-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270616-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270616T090000
 DTEND;TZID=Europe/Copenhagen:20270616T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270620-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270616-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270616T113000
+DTEND;TZID=Europe/Rome:20270616T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270620-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270620T060000
+DTEND;TZID=Europe/Rome:20270620T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270620-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270620T083500
 DTEND;TZID=Europe/Copenhagen:20270620T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270623-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270623-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270623T090000
 DTEND;TZID=Europe/Copenhagen:20270623T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270627-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270623-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270623T113000
+DTEND;TZID=Europe/Rome:20270623T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270627-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270627T060000
+DTEND;TZID=Europe/Rome:20270627T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270627-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270627T083500
 DTEND;TZID=Europe/Copenhagen:20270627T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270630-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270630-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270630T090000
 DTEND;TZID=Europe/Copenhagen:20270630T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270704-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270630-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270630T113000
+DTEND;TZID=Europe/Rome:20270630T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270704-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270704T060000
+DTEND;TZID=Europe/Rome:20270704T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270704-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270704T083500
 DTEND;TZID=Europe/Copenhagen:20270704T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270707-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270707-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270707T090000
 DTEND;TZID=Europe/Copenhagen:20270707T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270711-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270707-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270707T113000
+DTEND;TZID=Europe/Rome:20270707T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270711-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270711T060000
+DTEND;TZID=Europe/Rome:20270711T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270711-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270711T083500
 DTEND;TZID=Europe/Copenhagen:20270711T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270714-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270714-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270714T090000
 DTEND;TZID=Europe/Copenhagen:20270714T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270718-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270714-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270714T113000
+DTEND;TZID=Europe/Rome:20270714T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270718-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270718T060000
+DTEND;TZID=Europe/Rome:20270718T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270718-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270718T083500
 DTEND;TZID=Europe/Copenhagen:20270718T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270721-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270721-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270721T090000
 DTEND;TZID=Europe/Copenhagen:20270721T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270725-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270721-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270721T113000
+DTEND;TZID=Europe/Rome:20270721T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270725-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270725T060000
+DTEND;TZID=Europe/Rome:20270725T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270725-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270725T083500
 DTEND;TZID=Europe/Copenhagen:20270725T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270728-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270728-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270728T090000
 DTEND;TZID=Europe/Copenhagen:20270728T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270801-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270728-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270728T113000
+DTEND;TZID=Europe/Rome:20270728T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270801-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270801T060000
+DTEND;TZID=Europe/Rome:20270801T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270801-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270801T083500
 DTEND;TZID=Europe/Copenhagen:20270801T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270804-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270804-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270804T090000
 DTEND;TZID=Europe/Copenhagen:20270804T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270808-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270804-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270804T113000
+DTEND;TZID=Europe/Rome:20270804T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270808-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270808T060000
+DTEND;TZID=Europe/Rome:20270808T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270808-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270808T083500
 DTEND;TZID=Europe/Copenhagen:20270808T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270811-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270811-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270811T090000
 DTEND;TZID=Europe/Copenhagen:20270811T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270815-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270811-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270811T113000
+DTEND;TZID=Europe/Rome:20270811T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270815-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270815T060000
+DTEND;TZID=Europe/Rome:20270815T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270815-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270815T083500
 DTEND;TZID=Europe/Copenhagen:20270815T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270818-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270818-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270818T090000
 DTEND;TZID=Europe/Copenhagen:20270818T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270822-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270818-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270818T113000
+DTEND;TZID=Europe/Rome:20270818T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270822-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270822T060000
+DTEND;TZID=Europe/Rome:20270822T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270822-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270822T083500
 DTEND;TZID=Europe/Copenhagen:20270822T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270825-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270825-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270825T090000
 DTEND;TZID=Europe/Copenhagen:20270825T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270829-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270825-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270825T113000
+DTEND;TZID=Europe/Rome:20270825T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270829-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270829T060000
+DTEND;TZID=Europe/Rome:20270829T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270829-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270829T083500
 DTEND;TZID=Europe/Copenhagen:20270829T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270901-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270901-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270901T090000
 DTEND;TZID=Europe/Copenhagen:20270901T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270905-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270901-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270901T113000
+DTEND;TZID=Europe/Rome:20270901T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270905-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270905T060000
+DTEND;TZID=Europe/Rome:20270905T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270905-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270905T083500
 DTEND;TZID=Europe/Copenhagen:20270905T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270908-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270908-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270908T090000
 DTEND;TZID=Europe/Copenhagen:20270908T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270912-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270908-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270908T113000
+DTEND;TZID=Europe/Rome:20270908T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270912-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270912T060000
+DTEND;TZID=Europe/Rome:20270912T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270912-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270912T083500
 DTEND;TZID=Europe/Copenhagen:20270912T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270915-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270915-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270915T090000
 DTEND;TZID=Europe/Copenhagen:20270915T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270919-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270915-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270915T113000
+DTEND;TZID=Europe/Rome:20270915T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270919-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270919T060000
+DTEND;TZID=Europe/Rome:20270919T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270919-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270919T083500
 DTEND;TZID=Europe/Copenhagen:20270919T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270922-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270922-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270922T090000
 DTEND;TZID=Europe/Copenhagen:20270922T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270926-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270922-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270922T113000
+DTEND;TZID=Europe/Rome:20270922T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20270926-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270926T060000
+DTEND;TZID=Europe/Rome:20270926T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20270926-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270926T083500
 DTEND;TZID=Europe/Copenhagen:20270926T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20270929-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20270929-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20270929T090000
 DTEND;TZID=Europe/Copenhagen:20270929T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20271003-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20270929-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20270929T113000
+DTEND;TZID=Europe/Rome:20270929T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20271003-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20271003T060000
+DTEND;TZID=Europe/Rome:20271003T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20271003-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20271003T083500
 DTEND;TZID=Europe/Copenhagen:20271003T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20271006-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20271006-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20271006T090000
 DTEND;TZID=Europe/Copenhagen:20271006T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20271010-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20271006-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20271006T113000
+DTEND;TZID=Europe/Rome:20271006T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20271010-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20271010T060000
+DTEND;TZID=Europe/Rome:20271010T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20271010-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20271010T083500
 DTEND;TZID=Europe/Copenhagen:20271010T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20271013-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20271013-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20271013T090000
 DTEND;TZID=Europe/Copenhagen:20271013T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20271017-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20271013-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20271013T113000
+DTEND;TZID=Europe/Rome:20271013T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20271017-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20271017T060000
+DTEND;TZID=Europe/Rome:20271017T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20271017-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20271017T083500
 DTEND;TZID=Europe/Copenhagen:20271017T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20271020-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20271020-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20271020T090000
 DTEND;TZID=Europe/Copenhagen:20271020T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20271024-0835-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5088-CPH-TRN-20271020-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20271020T113000
+DTEND;TZID=Europe/Rome:20271020T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20271024-0600@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20271024T060000
+DTEND;TZID=Europe/Rome:20271024T081000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5089-TRN-CPH-20271024-0835@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20271024T083500
 DTEND;TZID=Europe/Copenhagen:20271024T104000
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-UID:FR5089-20271027-0900-TRN-CPH@copilot.microsoft.com
-DTSTAMP:20261119T131855Z
+UID:FR5089-TRN-CPH-20271027-0900@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
 DTSTART;TZID=Europe/Rome:20271027T090000
 DTEND;TZID=Europe/Copenhagen:20271027T110500
-SUMMARY:✈ FR5089 TRN → CPH
-LOCATION:Torino (TRN) → København (CPH)
-DESCRIPTION:Ryanair FR5089. Torino (TRN) til København (CPH). Kun verifi
- ceret publiceret afgang. Verificeret sommerprogram
+SUMMARY:✈ FR5089 TRN -> CPH
+LOCATION:TRN -> CPH
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5089. Kontrollér altid Ryanair før booking.
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:FR5088-CPH-TRN-20271027-1130@hfedder-ryanair-calendar
+DTSTAMP:20261121T090307Z
+DTSTART;TZID=Europe/Copenhagen:20271027T113000
+DTEND;TZID=Europe/Rome:20271027T134000
+SUMMARY:✈ FR5088 CPH -> TRN
+LOCATION:CPH -> TRN
+DESCRIPTION:Verificeret statisk køreplan. Kilde: Flight.info FR5088. Kontrollér altid Ryanair før booking.
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
