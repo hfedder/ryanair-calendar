@@ -231,93 +231,28 @@ def arguments_for(tool_name, origin, destination, flight_date):
         }
     raise RuntimeError("Unsupported MCP tool: " + tool_name)
 
-
 async def collect_flights():
-    today = date.today()
-    last_date = today + timedelta(days=DAYS_AHEAD)
-    flights = []
-    errors = []
-
     async with streamable_http_client(MCP_URL) as (read_stream, write_stream):
         async with ClientSession(read_stream, write_stream) as session:
             await session.initialize()
-        listed = await session.list_tools()
 
-        for tool in listed.tools:
-            print("=" * 80)
-            print("MCP TOOL:", tool.name)
-            print("DESCRIPTION:", getattr(tool, "description", None))
-            print(
-                "INPUT SCHEMA:",
-                json.dumps(
-                    getattr(tool, "inputSchema", {}),
-                    indent=2,
-                    ensure_ascii=False,
-                    default=str,
-                ),
-            )
+            listed = await session.list_tools()
 
-        raise RuntimeError("STOP AFTER MCP TOOL SCHEMA DUMP")
-
-            if tool_name.startswith("pricing-get-cheapest"):
+            for tool in listed.tools:
+                print("=" * 80)
+                print("MCP TOOL:", tool.name)
+                print("DESCRIPTION:", getattr(tool, "description", None))
                 print(
-                    "WARNING: Selected pricing tool may return only the cheapest "
-                    "flight rather than every departure."
+                    "INPUT SCHEMA:",
+                    json.dumps(
+                        getattr(tool, "inputSchema", {}),
+                        indent=2,
+                        ensure_ascii=False,
+                        default=str,
+                    ),
                 )
 
-            expected = (DAYS_AHEAD + 1) * len(ROUTES)
-            done = 0
-
-            for origin, destination in ROUTES:
-                route_start_count = len(flights)
-                route_error_start = len(errors)
-                current = today
-                print(f"Starting route {origin}->{destination}")
-
-                while current <= last_date:
-                    try:
-                        result = await session.call_tool(
-                            tool_name,
-                            arguments=arguments_for(
-                                tool_name, origin, destination, current
-                            ),
-                        )
-                        text = result_text(result)
-                        lower_text = text.lower()
-                        if getattr(result, "isError", False):
-                            raise RuntimeError(text[:500] or "MCP tool returned an error")
-                        if "tool not found" in lower_text:
-                            raise RuntimeError(text[:500] or "MCP tool not found")
-                        if "failed to fetch" in lower_text:
-                            raise RuntimeError(text[:500] or "MCP failed to fetch data")
-
-                        flights.extend(
-                            parse_flights(
-                                text, current, origin, destination
-                            )
-                        )
-                    except Exception as exc:
-                        errors.append(
-                            f"{origin}->{destination} {current.isoformat()}: {exc}"
-                        )
-
-                    done += 1
-                    if done % 50 == 0 or done == expected:
-                        print(
-                            f"MCP progress: {done}/{expected}; "
-                            f"flights={len(flights)}; errors={len(errors)}"
-                        )
-                    current += timedelta(days=1)
-
-                route_count = len(flights) - route_start_count
-                route_errors = len(errors) - route_error_start
-                print(
-                    f"ROUTE RESULT {origin}->{destination}: "
-                    f"{route_count} flights; {route_errors} errors"
-                )
-
-            return flights, errors, tool_name, available_tools
-
+            raise RuntimeError("STOP AFTER MCP TOOL SCHEMA DUMP")
 
 def deduplicate(flights):
     unique = {}
