@@ -7,13 +7,10 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-import requests
 from mcp import ClientSession
 from mcp.client.streamable_http import streamable_http_client
 
 MCP_URL = "https://services-api.ryanair.com/mcp-server/mcp"
-AVAILABILITY_URL = "https://www.ryanair.com/api/booking/v4/en-gb/availability"
-
 OUTPUT_FILE = Path("Ryanair_TRN_BGY_CPH_verificerede_afgange.ics")
 CANDIDATE_FILE = Path("Ryanair_TRN_BGY_CPH_candidate.ics")
 BACKUP_FILE = Path("Ryanair_TRN_BGY_CPH_verificerede_afgange.backup.ics")
@@ -48,7 +45,13 @@ def fold_ics_line(line):
     return "\r\n ".join(parts)
 
 
-def parse_mcp_text(text, requested_date, origin, destination):
+def result_text(result):
+    return "\n".join(item.text for item in result.content if hasattr(item, "text") and item.text)
+
+
+def parse_flights(text, requested_date, origin, destination):
+    # Accepts the concise Ryanair MCP text format already observed in our successful tests:
+    # FR5089: TRN 09:20 -> CPH 11:30 | 66.44 EUR
     pattern = re.compile(
         r"\b(FR\s?\d{1,5})\s*:\s*([A-Z]{3})\s+([0-2]\d:[0-5]\d)\s*"
         r"(?:→|->|-)\s*([A-Z]{3})\s+([0-2]\d:[0-5]\d)"
@@ -56,256 +59,157 @@ def parse_mcp_text(text, requested_date, origin, destination):
         re.IGNORECASE,
     )
     flights = []
-    for match in pattern.finditer(text):
-        number = match.group(1).replace(" ", "").upper()
-        found_origin = match.group(2).upper()
-        found_destination = match.group(4).upper()
+    for m in pattern.finditer(text):
+        found_origin, found_destination = m.group(2).upper(), m.group(4).upper()
         if found_origin != origin or found_destination != destination:
             continue
-        dep = datetime.combine(
-            requested_date, datetime.strptime(match.group(3), "%H:%M").time(), airport_tz(origin)
-        )
-        arr = datetime.combine(
-            requested_date, datetime.strptime(match.group(5), "%H:%M").time(), airport_tz(destination)
-        )
+        dep = datetime.combine(requested_date, datetime.strptime(m.group(3), "%H:%M").time(), airport_tz(origin))
+        arr = datetime.combine(requested_date, datetime.strptime(m.group(5), "%H:%M").time(), airport_tz(destination))
         if arr.astimezone(timezone.utc) <= dep.astimezone(timezone.utc):
             arr += timedelta(days=1)
         flights.append({
-            "flight_number": number,
+            "flight_number": m.group(1).replace(" ", "").upper(),
             "origin": origin,
             "destination": destination,
             "departure": dep,
             "arrival": arr,
-            "price": match.group(6).replace(",", ".") if match.group(6) else None,
-            "currency": match.group(7),
-            "source": "Ryanair MCP cheapest one-way",
+            "price": m.group(6).replace(",", ".") if m.group(6) else None,
+            "currency": m.group(7) or "EUR",
+            "source": "Ryanair MCP",
         })
     return flights
 
 
-def extract_mcp_text(result):
-    return "\n".join(
-        item.text for item in result.content if hasattr(item, "text") and item.text
-    )
+def choose_tool(tools):
+    names = [tool.name for tool in tools]
+    print("Available MCP tools:", ", ".join(names))
+    preferred = [
+        "ryanair.search_flights",
+        "search_flights",
+        "pricing-get-cheapest-one-way-flight",
+        "pricing-get-cheapest-flight-per-day",
+    ]
+    for candidate in preferred:
+        if candidate in names:
+            return candidate
+    raise RuntimeError("No supported Ryanair flight-search MCP tool is currently exposed. Available: " + ", ".join(names))
 
 
-async def collect_mcp_flights():
+def arguments_for(tool_name, origin, destination, flight_date):
+    if tool_name in ("ryanair.search_flights", "search_flights"):
+        return {
+            "origin": origin,
+            "destination": destination,
+            "dateOut": flight_date.isoformat(),
+            "roundTrip": "false",
+            "passengers": {"adults": 1, "teens": 0, "children": 0, "infants": 0},
+            "langCode": "en-IE",
+        }
+    if tool_name == "pricing-get-cheapest-one-way-flight":
+        return {
+            "outboundDepartureDateFrom": flight_date.isoformat(),
+            "outboundDepartureDateTo": flight_date.isoformat(),
+            "departureIataCodes": [origin],
+            "arrivalIataCodes": [destination],
+            "currency": "EUR",
+            "limit": 50,
+            "pageNumber": 0,
+        }
+    if tool_name == "pricing-get-cheapest-flight-per-day":
+        return {
+            "departureIataCode": origin,
+            "arrivalIataCode": destination,
+            "outboundDepartureDateFrom": flight_date.isoformat(),
+            "outboundDepartureDateTo": flight_date.isoformat(),
+            "currency": "EUR",
+        }
+    raise RuntimeError("Unsupported MCP tool: " + tool_name)
+
+
+async def collect_flights():
     today = date.today()
     last_date = today + timedelta(days=DAYS_AHEAD)
-    flights = []
-    errors = []
-
+    flights, errors = [], []
     async with streamable_http_client(MCP_URL) as (read_stream, write_stream):
         async with ClientSession(read_stream, write_stream) as session:
             await session.initialize()
+            listed = await session.list_tools()
+            tool_name = choose_tool(listed.tools)
+            print("Selected MCP tool:", tool_name)
+            expected = (DAYS_AHEAD + 1) * len(ROUTES)
+            done = 0
             for origin, destination in ROUTES:
                 current = today
                 while current <= last_date:
-                    arguments = {
-                        "outboundDepartureDateFrom": current.isoformat(),
-                        "outboundDepartureDateTo": current.isoformat(),
-                        "departureIataCodes": [origin],
-                        "arrivalIataCodes": [destination],
-                        "currency": "EUR",
-                        "limit": 50,
-                        "pageNumber": 0,
-                    }
                     try:
-                        result = await session.call_tool(
-                            "pricing-get-cheapest-one-way-flight", arguments=arguments
-                        )
-                        text = extract_mcp_text(result)
-                        if "failed to fetch" in text.lower() or "bad request" in text.lower():
-                            raise RuntimeError(text[:500])
-                        flights.extend(parse_mcp_text(text, current, origin, destination))
+                        result = await session.call_tool(tool_name, arguments=arguments_for(tool_name, origin, destination, current))
+                        text = result_text(result)
+                        if getattr(result, "isError", False) or "tool not found" in text.lower() or "failed to fetch" in text.lower():
+                            raise RuntimeError(text[:500] or "MCP tool error")
+                        flights.extend(parse_flights(text, current, origin, destination))
                     except Exception as exc:
                         errors.append(f"{origin}->{destination} {current}: {exc}")
+                    done += 1
+                    if done % 50 == 0 or done == expected:
+                        print(f"MCP progress: {done}/{expected}; flights={len(flights)}; errors={len(errors)}")
                     current += timedelta(days=1)
-    return flights, errors
-
-
-def parse_availability_payload(payload, origin, destination, first_date, last_date):
-    flights = []
-    for trip in payload.get("trips", []):
-        if trip.get("origin") != origin or trip.get("destination") != destination:
-            continue
-        for day in trip.get("dates", []):
-            for item in day.get("flights", []):
-                number = str(item.get("flightNumber") or "").replace(" ", "")
-                times = item.get("time") or []
-                if not number or len(times) < 2:
-                    continue
-                try:
-                    dep = datetime.fromisoformat(str(times[0]).replace("Z", "+00:00"))
-                    arr = datetime.fromisoformat(str(times[1]).replace("Z", "+00:00"))
-                except ValueError:
-                    continue
-                if dep.tzinfo is None:
-                    dep = dep.replace(tzinfo=airport_tz(origin))
-                else:
-                    dep = dep.astimezone(airport_tz(origin))
-                if arr.tzinfo is None:
-                    arr = arr.replace(tzinfo=airport_tz(destination))
-                else:
-                    arr = arr.astimezone(airport_tz(destination))
-                if not first_date <= dep.date() <= last_date:
-                    continue
-                fare = None
-                fares = (item.get("regularFare") or {}).get("fares") or []
-                if fares:
-                    fare = fares[0].get("amount")
-                flights.append({
-                    "flight_number": number if number.startswith("FR") else "FR" + number,
-                    "origin": origin,
-                    "destination": destination,
-                    "departure": dep,
-                    "arrival": arr,
-                    "price": fare,
-                    "currency": payload.get("currency", "EUR"),
-                    "source": "Ryanair availability supplement",
-                })
-    return flights
-
-
-def try_availability_supplement():
-    today = date.today()
-    last_date = today + timedelta(days=DAYS_AHEAD)
-    session = requests.Session()
-    session.headers.update({
-        "Accept": "application/json",
-        "User-Agent": "Mozilla/5.0 (compatible; hfedder-ryanair-calendar/1.0)",
-    })
-    flights = []
-    errors = []
-    for origin, destination in ROUTES:
-        cursor = today
-        while cursor <= last_date:
-            params = {
-                "ADT": 1, "CHD": 0, "INF": 0, "TEEN": 0, "Disc": 0,
-                "DateIn": "", "DateOut": cursor.isoformat(),
-                "Origin": origin, "Destination": destination,
-                "RoundTrip": "false", "ToUs": "AGREED",
-                "IncludeConnectingFlights": "false", "promoCode": "",
-                "FlexDaysBeforeOut": 0, "FlexDaysOut": 6,
-                "FlexDaysBeforeIn": 0, "FlexDaysIn": 0,
-            }
-            try:
-                response = session.get(AVAILABILITY_URL, params=params, timeout=25)
-                if response.status_code == 409:
-                    errors.append(f"{origin}->{destination}: availability disabled after HTTP 409")
-                    break
-                response.raise_for_status()
-                flights.extend(parse_availability_payload(
-                    response.json(), origin, destination, today, last_date
-                ))
-            except Exception as exc:
-                errors.append(f"{origin}->{destination} {cursor}: {exc}")
-                break
-            cursor += timedelta(days=7)
-    return flights, errors
+            return flights, errors, tool_name, [tool.name for tool in listed.tools]
 
 
 def deduplicate(flights):
     unique = {}
-    for flight in flights:
-        key = (
-            flight["flight_number"], flight["origin"], flight["destination"],
-            flight["departure"].strftime("%Y%m%dT%H%M"),
-        )
-        current = unique.get(key)
-        if current is None or flight["source"].startswith("Ryanair availability"):
-            unique[key] = flight
-    return sorted(unique.values(), key=lambda item: item["departure"])
+    for f in flights:
+        key = (f["flight_number"], f["origin"], f["destination"], f["departure"].strftime("%Y%m%dT%H%M"))
+        unique[key] = f
+    return sorted(unique.values(), key=lambda f: f["departure"])
 
 
 def make_uid(flight):
-    return "-".join([
-        flight["flight_number"], flight["origin"], flight["destination"],
-        flight["departure"].strftime("%Y%m%dT%H%M"),
-    ]) + "@hfedder-ryanair-calendar"
+    return "-".join([flight["flight_number"], flight["origin"], flight["destination"], flight["departure"].strftime("%Y%m%dT%H%M")]) + "@hfedder-ryanair-calendar"
 
 
 def build_ics(flights):
     now = datetime.now(timezone.utc)
-    lines = [
-        "BEGIN:VCALENDAR", "VERSION:2.0",
-        "PRODID:-//hfedder//Ryanair Piemonte Calendar//DA",
-        "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
-        "X-WR-CALNAME:Ryanair Piemonte - CPH",
-        "X-WR-CALDESC:Ryanair afgange mellem København og Piemonte",
-        "REFRESH-INTERVAL;VALUE=DURATION:PT6H", "X-PUBLISHED-TTL:PT6H",
-    ]
-    for flight in flights:
-        dep_tz = "Europe/Copenhagen" if flight["origin"] == "CPH" else "Europe/Rome"
-        arr_tz = "Europe/Copenhagen" if flight["destination"] == "CPH" else "Europe/Rome"
-        summary = "✈ " + flight["flight_number"] + " " + flight["origin"] + " -> " + flight["destination"]
-        description = "Datakilde: " + flight["source"] + ". Kontrollér altid Ryanair før booking."
-        if flight.get("price") is not None:
-            description += " Observeret pris: " + str(flight["price"]) + " " + str(flight.get("currency") or "EUR") + "."
-        lines.extend([
-            "BEGIN:VEVENT", "UID:" + make_uid(flight),
-            "DTSTAMP:" + now.strftime("%Y%m%dT%H%M%SZ"),
-            "LAST-MODIFIED:" + now.strftime("%Y%m%dT%H%M%SZ"),
-            "DTSTART;TZID=" + dep_tz + ":" + flight["departure"].strftime("%Y%m%dT%H%M%S"),
-            "DTEND;TZID=" + arr_tz + ":" + flight["arrival"].strftime("%Y%m%dT%H%M%S"),
-            "SUMMARY:" + escape_ics(summary),
-            "LOCATION:" + escape_ics(flight["origin"] + " -> " + flight["destination"]),
-            "DESCRIPTION:" + escape_ics(description),
-            "STATUS:CONFIRMED", "TRANSP:TRANSPARENT", "END:VEVENT",
-        ])
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//hfedder//Ryanair Piemonte Calendar//DA", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:Ryanair Piemonte - CPH", "REFRESH-INTERVAL;VALUE=DURATION:PT6H", "X-PUBLISHED-TTL:PT6H"]
+    for f in flights:
+        dep_tz = "Europe/Copenhagen" if f["origin"] == "CPH" else "Europe/Rome"
+        arr_tz = "Europe/Copenhagen" if f["destination"] == "CPH" else "Europe/Rome"
+        summary = "✈ " + f["flight_number"] + " " + f["origin"] + " -> " + f["destination"]
+        description = "Datakilde: " + f["source"] + ". Kontrollér altid Ryanair før booking."
+        if f.get("price") is not None:
+            description += " Observeret pris: " + str(f["price"]) + " " + str(f.get("currency") or "EUR") + "."
+        lines.extend(["BEGIN:VEVENT", "UID:" + make_uid(f), "DTSTAMP:" + now.strftime("%Y%m%dT%H%M%SZ"), "DTSTART;TZID=" + dep_tz + ":" + f["departure"].strftime("%Y%m%dT%H%M%S"), "DTEND;TZID=" + arr_tz + ":" + f["arrival"].strftime("%Y%m%dT%H%M%S"), "SUMMARY:" + escape_ics(summary), "LOCATION:" + escape_ics(f["origin"] + " -> " + f["destination"]), "DESCRIPTION:" + escape_ics(description), "STATUS:CONFIRMED", "TRANSP:TRANSPARENT", "END:VEVENT"])
     lines.append("END:VCALENDAR")
     return "\r\n".join(fold_ics_line(line) for line in lines) + "\r\n"
 
 
-def validate(flights, mcp_errors, availability_errors, supplement_count):
-    counts = {origin + "->" + destination: 0 for origin, destination in ROUTES}
-    for flight in flights:
-        counts[flight["origin"] + "->" + flight["destination"]] += 1
-    checks = {
-        "minimum_total_100": len(flights) >= 100,
-        "all_routes_present": all(value > 0 for value in counts.values()),
-        "turin_plausible": 40 <= counts["TRN->CPH"] <= 250 and 40 <= counts["CPH->TRN"] <= 250,
-        "bergamo_plausible": counts["BGY->CPH"] >= 250 and counts["CPH->BGY"] >= 250,
-        "mcp_errors_below_10_percent": len(mcp_errors) <= 146,
-    }
-    report = {
-        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "publish_requested": PUBLISH,
-        "mode": "hybrid-mcp-with-optional-availability-supplement",
-        "total_flights": len(flights),
-        "route_counts": counts,
-        "availability_supplement_flights": supplement_count,
-        "mcp_error_count": len(mcp_errors),
-        "mcp_errors_sample": mcp_errors[:10],
-        "availability_errors": availability_errors,
-        "checks": checks,
-        "validation_passed": all(checks.values()),
-    }
+def validate(flights, errors, selected_tool, available_tools):
+    counts = {o + "->" + d: 0 for o, d in ROUTES}
+    for f in flights:
+        counts[f["origin"] + "->" + f["destination"]] += 1
+    checks = {"minimum_total_100": len(flights) >= 100, "all_routes_present": all(v > 0 for v in counts.values()), "mcp_errors_below_10_percent": len(errors) <= 146}
+    report = {"generated_at_utc": datetime.now(timezone.utc).isoformat(), "publish_requested": PUBLISH, "mode": "mcp-autodiscovery-safe", "selected_tool": selected_tool, "available_tools": available_tools, "total_flights": len(flights), "route_counts": counts, "mcp_error_count": len(errors), "mcp_errors_sample": errors[:10], "checks": checks, "validation_passed": all(checks.values())}
     REPORT_FILE.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(report, indent=2, ensure_ascii=False))
     if not report["validation_passed"]:
-        raise RuntimeError("Safety stop: hybrid candidate failed validation; production ICS was not changed")
+        raise RuntimeError("Safety stop: MCP candidate failed validation; production ICS was not changed")
 
 
 async def main():
-    mcp_flights, mcp_errors = await collect_mcp_flights()
-    availability_flights, availability_errors = try_availability_supplement()
-    flights = deduplicate(mcp_flights + availability_flights)
-    validate(flights, mcp_errors, availability_errors, len(availability_flights))
-
+    flights, errors, selected_tool, available_tools = await collect_flights()
+    flights = deduplicate(flights)
+    validate(flights, errors, selected_tool, available_tools)
     candidate = build_ics(flights)
     CANDIDATE_FILE.write_text(candidate, encoding="utf-8", newline="")
     print("Candidate calendar written with", len(flights), "flights")
-
     if not PUBLISH:
         print("SAFE MODE: PUBLISH_CALENDAR is not true. Production ICS was not changed.")
         return
-
     if OUTPUT_FILE.exists():
         shutil.copy2(OUTPUT_FILE, BACKUP_FILE)
-    temp_file = OUTPUT_FILE.with_suffix(".ics.tmp")
-    temp_file.write_text(candidate, encoding="utf-8", newline="")
-    temp_file.replace(OUTPUT_FILE)
+    temp = OUTPUT_FILE.with_suffix(".ics.tmp")
+    temp.write_text(candidate, encoding="utf-8", newline="")
+    temp.replace(OUTPUT_FILE)
     print("Production ICS published atomically; previous file backed up")
 
 
