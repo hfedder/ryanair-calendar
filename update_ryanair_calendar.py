@@ -276,6 +276,7 @@ def validate(flights, mcp_errors, availability_errors, supplement_count):
         "route_counts": counts,
         "availability_supplement_flights": supplement_count,
         "mcp_error_count": len(mcp_errors),
+        "mcp_errors_sample": mcp_errors[:10],
         "availability_errors": availability_errors,
         "checks": checks,
         "validation_passed": all(checks.values()),
