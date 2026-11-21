@@ -241,9 +241,23 @@ async def collect_flights():
     async with streamable_http_client(MCP_URL) as (read_stream, write_stream):
         async with ClientSession(read_stream, write_stream) as session:
             await session.initialize()
-            listed = await session.list_tools()
-            available_tools = [tool.name for tool in listed.tools]
-            tool_name = choose_tool(listed.tools)
+listed = await session.list_tools()
+
+for tool in listed.tools:
+    print("=" * 80)
+    print("MCP TOOL:", tool.name)
+    print("DESCRIPTION:", getattr(tool, "description", None))
+    print(
+        "INPUT SCHEMA:",
+        json.dumps(
+            getattr(tool, "inputSchema", {}),
+            indent=2,
+            ensure_ascii=False,
+            default=str,
+        ),
+    )
+
+raise RuntimeError("STOP AFTER MCP TOOL SCHEMA DUMP")
             print("Selected MCP tool:", tool_name)
 
             if tool_name.startswith("pricing-get-cheapest"):
