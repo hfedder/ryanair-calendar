@@ -1,0 +1,19 @@
+name: Probe Ryanair timetable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Probe Ryanair timetable API
+        run: python probe_ryanair_timetable.py
