@@ -89,8 +89,19 @@ def main():
                                   'reason': 'no valid route'})
             continue
         fastest = min(best, key=lambda d: (best[d][-1]['arrival'], len(best[d])))
-        chosen = ('NIZZA MONFERRATO' if 'NIZZA MONFERRATO' in best and
-                  best['NIZZA MONFERRATO'][-1]['arrival'] <= best[fastest][-1]['arrival'] + 45 else fastest)
+        fastest_arrival = best[fastest][-1]['arrival']
+        fastest_transfers = len(best[fastest]) - 1
+
+        nizza = best.get('NIZZA MONFERRATO')
+
+        if (
+            nizza is not None
+            and nizza[-1]['arrival'] <= fastest_arrival + 45
+            and len(nizza) - 1 <= fastest_transfers + 1
+        ):
+            chosen = 'NIZZA MONFERRATO'
+        else:
+            chosen = fastest
         others = [d for d in best if d != chosen]
         alternative = min(others, key=lambda d: (best[d][-1]['arrival'], len(best[d]))) if others else None
         for dest, label in ((chosen, 'ANBEFALET'), (alternative, 'ALTERNATIV')):
