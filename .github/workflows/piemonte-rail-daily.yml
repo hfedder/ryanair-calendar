@@ -48,11 +48,11 @@ jobs:
         with:
           name: piemonte-rail-daily-test
           path: |
-            Piemonte_tog_fast90_candidate.ics
+            Piemonte_tog_fast90_v2_candidate.ics
             piemonte_fast90_v2_validation.json
       - name: Publish separate TEST calendar to GitHub Pages source
         run: |
-          cp Piemonte_tog_fast90_candidate.ics Piemonte_tog_rolling.ics
+          cp Piemonte_tog_fast90_v2_candidate.ics Piemonte_tog_rolling.ics
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add Piemonte_tog_rolling.ics
