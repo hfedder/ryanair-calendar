@@ -18,8 +18,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--days', type=int, default=90)
     args = parser.parse_args()
-    if not 1 <= args.days <= 120:
-        parser.error('--days must be 1..120')
+    if not 1 <= args.days <= 180:
+        parser.error('--days must be 1..180')
     today = datetime.now(ROME).date()
     end_day = today + timedelta(days=args.days)
     arrivals = []
