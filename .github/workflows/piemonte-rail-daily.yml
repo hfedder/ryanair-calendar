@@ -1,0 +1,64 @@
+name: Piemonte Rail Daily (TEST)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 4 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: piemonte-rail-daily
+  cancel-in-progress: false
+
+jobs:
+  rail:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build 365-day candidate
+        run: python -u piemonte_rolling_rail_fast90_v2.py --days 365
+      - name: Validate candidate before publication
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r = json.loads(Path('piemonte_fast90_validation.json').read_text(encoding='utf-8'))
+          p = Path('Piemonte_tog_fast90_candidate.ics')
+          assert r['qualifying_flights'] > 0, 'No qualifying flights'
+          assert r['recommended'] == r['qualifying_flights'], 'Missing recommendations'
+          assert not r['no_connection'], 'Missing connections'
+          assert not r.get('days_without_active_gtfs_service'), 'GTFS calendar gaps'
+          assert r['status'] == 'test_only_not_verified', 'Unexpected report status'
+          data = p.read_bytes()
+          assert data.startswith(b'BEGIN:VCALENDAR\r\n') and data.rstrip().endswith(b'END:VCALENDAR'), 'Invalid ICS wrapper'
+          assert data.count(b'BEGIN:VEVENT') == r['recommended'] + r['alternatives'], 'Event count mismatch'
+          assert len(data) > 100, 'Empty ICS'
+          print('Publication gate passed:', r['recommended'], 'recommended;', r['alternatives'], 'alternatives')
+          PY
+      - name: Upload candidate and validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: piemonte-rail-daily-test
+          path: |
+            Piemonte_tog_fast90_candidate.ics
+            piemonte_fast90_validation.json
+      - name: Publish separate TEST calendar to GitHub Pages source
+        run: |
+          cp Piemonte_tog_fast90_candidate.ics Piemonte_tog_rolling.ics
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Piemonte_tog_rolling.ics
+          if git diff --cached --quiet; then
+            echo 'No calendar changes to publish'
+          else
+            git commit -m 'Update Piemonte rolling TEST rail calendar'
+            git push
+          fi
