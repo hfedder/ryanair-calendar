@@ -1,136 +1,189 @@
+#!/usr/bin/env python3
+"""Fetch Ryanair timetables and safely build an Outlook-compatible ICS calendar.
+
+Default: candidate + validation report ONLY. Existing published ICS is untouched.
+Set PUBLISH_CALENDAR=true to publish only if every route/month passes validation.
+The timetable endpoint is unofficial/undocumented; verify results against Ryanair.
+"""
+import calendar
+import json
+import os
+import shutil
+import sys
+import time
+import urllib.error
+import urllib.request
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
-import shutil
 
-OUTPUT_FILE = Path("Ryanair_TRN_BGY_CPH_verificerede_afgange.ics")
-BACKUP_FILE = Path("Ryanair_TRN_BGY_CPH_verificerede_afgange.backup.ics")
-
-ROME = ZoneInfo("Europe/Rome")
-COPENHAGEN = ZoneInfo("Europe/Copenhagen")
-
-# Static verified schedule rules. Extend this list when a new Ryanair season is published.
-# weekday: Monday=0 ... Sunday=6
-RULES = [
-    # TRN -> CPH, FR5089
-    ("FR5089", "TRN", "CPH", 0, "09:20", "11:30", "2026-11-21", "2027-03-22"),
-    ("FR5089", "TRN", "CPH", 5, "08:25", "10:35", "2026-11-21", "2027-03-27"),
-    ("FR5089", "TRN", "CPH", 1, "11:05", "13:15", "2026-12-22", "2026-12-29"),
-    ("FR5089", "TRN", "CPH", 3, "06:10", "08:20", "2026-12-24", "2026-12-31"),
-    ("FR5089", "TRN", "CPH", 3, "16:30", "18:40", "2027-03-25", "2027-03-25"),
-    ("FR5089", "TRN", "CPH", 6, "08:35", "10:40", "2027-03-28", "2027-10-24"),
-    ("FR5089", "TRN", "CPH", 2, "09:00", "11:05", "2027-03-31", "2027-10-27"),
-
-    # BGY -> CPH, FR2990 (published winter schedule portions verified)
-    ("FR2990", "BGY", "CPH", 3, "21:55", "00:05", "2026-11-21", "2026-11-26"),
-    ("FR2990", "BGY", "CPH", 4, "19:45", "21:55", "2026-11-21", "2026-11-27"),
-    ("FR2990", "BGY", "CPH", 5, "08:35", "10:45", "2026-11-21", "2026-12-12"),
-    ("FR2990", "BGY", "CPH", 0, "22:00", "00:10", "2026-11-21", "2026-11-30"),
-    ("FR2990", "BGY", "CPH", 6, "09:30", "11:40", "2026-11-22", "2027-01-03"),
-    ("FR2990", "BGY", "CPH", 2, "19:35", "21:45", "2026-11-25", "2026-12-09"),
-    ("FR2990", "BGY", "CPH", 3, "21:55", "00:05", "2026-12-03", "2026-12-10"),
-
-    # CPH -> BGY, FR2989. Verified Nov 2026 recurring pattern.
-    ("FR2989", "CPH", "BGY", 0, "19:25", "21:35", "2026-11-21", "2026-11-30"),
-    ("FR2989", "CPH", "BGY", 2, "16:35", "18:45", "2026-11-21", "2026-11-30"),
-    ("FR2989", "CPH", "BGY", 3, "19:20", "21:30", "2026-11-21", "2026-11-30"),
-    ("FR2989", "CPH", "BGY", 4, "22:20", "00:30", "2026-11-21", "2026-11-30"),
-    ("FR2989", "CPH", "BGY", 5, "06:00", "08:10", "2026-11-21", "2026-11-30"),
-    ("FR2989", "CPH", "BGY", 6, "06:55", "09:05", "2026-11-21", "2026-11-30"),
-
-    # CPH -> TRN, FR5088
-    ("FR5088", "CPH", "TRN", 0, "06:45", "08:55", "2026-11-21", "2027-03-22"),
-    ("FR5088", "CPH", "TRN", 5, "05:50", "08:00", "2026-11-21", "2027-03-27"),
-    ("FR5088", "CPH", "TRN", 1, "13:40", "15:50", "2026-12-22", "2026-12-29"),
-    ("FR5088", "CPH", "TRN", 3, "08:45", "10:55", "2026-12-24", "2026-12-31"),
-    ("FR5088", "CPH", "TRN", 3, "19:05", "21:15", "2027-03-25", "2027-03-25"),
-    ("FR5088", "CPH", "TRN", 6, "06:00", "08:10", "2027-03-28", "2027-10-24"),
-    ("FR5088", "CPH", "TRN", 2, "11:30", "13:40", "2027-03-31", "2027-10-27"),
-]
+ROUTES = [("CPH", "BGY"), ("BGY", "CPH"), ("CPH", "TRN"), ("TRN", "CPH")]
+URL = "https://services-api.ryanair.com/timtbl/3/schedules/{origin}/{destination}/years/{year}/months/{month}"
+CANDIDATE = Path("Ryanair_TRN_BGY_CPH_candidate.ics")
+REPORT = Path("ryanair_validation_report.json")
+PUBLISHED = Path("Ryanair_TRN_BGY_CPH_verificerede_afgange.ics")
+BACKUP = Path("Ryanair_TRN_BGY_CPH_verificerede_afgange.backup.ics")
+TZ = {"CPH": ZoneInfo("Europe/Copenhagen"), "BGY": ZoneInfo("Europe/Rome"), "TRN": ZoneInfo("Europe/Rome")}
 
 
-def tz(code):
-    return COPENHAGEN if code == "CPH" else ROME
+def bool_env(name):
+    return os.getenv(name, "false").strip().lower() == "true"
 
 
-def parse_date(value):
-    return date.fromisoformat(value)
+def months_to_fetch():
+    """START_MONTH=YYYY-MM; MONTHS_AHEAD=12, including start month."""
+    start = os.getenv("START_MONTH", date.today().strftime("%Y-%m"))
+    try:
+        y, m = map(int, start.split("-"))
+        date(y, m, 1)
+        count = int(os.getenv("MONTHS_AHEAD", "12"))
+        if not 1 <= count <= 24:
+            raise ValueError("MONTHS_AHEAD must be between 1 and 24")
+    except (ValueError, TypeError) as exc:
+        raise ValueError("Invalid START_MONTH or MONTHS_AHEAD") from exc
+    return [((y * 12 + m - 1 + n) // 12, (y * 12 + m - 1 + n) % 12 + 1) for n in range(count)]
 
 
-def dt(day, hhmm, airport):
-    return datetime.combine(day, datetime.strptime(hhmm, "%H:%M").time(), tz(airport))
+def fetch(origin, destination, year, month):
+    url = URL.format(origin=origin, destination=destination, year=year, month=month)
+    req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "Mozilla/5.0 ryanair-calendar/2.0"})
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=25) as response:
+                payload = json.load(response)
+            if not isinstance(payload, dict) or not isinstance(payload.get("days"), list):
+                raise ValueError("Unexpected timetable JSON: missing days list")
+            return payload
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
+            if attempt == 2 or isinstance(exc, urllib.error.HTTPError) and exc.code not in (429, 500, 502, 503, 504):
+                raise
+            time.sleep(2 ** attempt)
 
 
-def escape(value):
-    return str(value).replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+def local_datetime(day, clock, airport):
+    if not isinstance(clock, str):
+        raise ValueError("Missing time")
+    t = datetime.strptime(clock, "%H:%M").time()
+    return datetime.combine(day, t, TZ[airport])
 
 
-def expand_rules():
-    flights = []
-    today = date.today()
-    for number, origin, destination, weekday, dep_time, arr_time, start_s, end_s in RULES:
-        start = max(today, parse_date(start_s))
-        end = parse_date(end_s)
-        current = start
-        while current <= end:
-            if current.weekday() == weekday:
-                departure = dt(current, dep_time, origin)
-                arrival = dt(current, arr_time, destination)
-                if arrival.astimezone(timezone.utc) <= departure.astimezone(timezone.utc):
-                    arrival += timedelta(days=1)
-                flights.append((number, origin, destination, departure, arrival))
-            current += timedelta(days=1)
-    return sorted(set(flights), key=lambda f: f[3])
+def extract(payload, origin, destination, year, month):
+    result = []
+    seen_days = set()
+    last_day = calendar.monthrange(year, month)[1]
+    for entry in payload["days"]:
+        if not isinstance(entry, dict):
+            raise ValueError("Malformed day entry")
+        number = entry.get("day")
+        if type(number) is not int or not 1 <= number <= last_day or number in seen_days:
+            raise ValueError(f"Invalid/duplicate day: {number!r}")
+        seen_days.add(number)
+        flights = entry.get("flights")
+        if not isinstance(flights, list):
+            raise ValueError(f"Missing flights list on day {number}")
+        for flight in flights:
+            if not isinstance(flight, dict):
+                raise ValueError("Malformed flight")
+            carrier = flight.get("carrierCode")
+            number_str = str(flight.get("number", "")).strip()
+            if carrier != "FR" or not number_str.isdigit():
+                raise ValueError(f"Unexpected carrier or flight number: {flight!r}")
+            d = date(year, month, number)
+            departure = local_datetime(d, flight.get("departureTime"), origin)
+            arrival = local_datetime(d, flight.get("arrivalTime"), destination)
+            if arrival.astimezone(timezone.utc) <= departure.astimezone(timezone.utc):
+                arrival += timedelta(days=1)
+            duration = arrival.astimezone(timezone.utc) - departure.astimezone(timezone.utc)
+            if not timedelta(minutes=30) <= duration <= timedelta(hours=5):
+                raise ValueError(f"Implausible duration for FR{number_str} on {d}: {duration}")
+            result.append((f"FR{number_str}", origin, destination, departure, arrival))
+    return result
 
 
-def build_ics(flights):
+def esc(text):
+    return str(text).replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+
+
+def fold(line):
+    """Fold ICS content lines at 75 octets, preserving UTF-8 characters."""
+    parts, current = [], ""
+    for char in line:
+        if len((current + char).encode("utf-8")) > (75 if not parts else 74):
+            parts.append(current)
+            current = char
+        else:
+            current += char
+    parts.append(current)
+    return "\r\n ".join(parts)
+
+
+def make_ics(flights):
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    lines = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//hfedder//Ryanair Piemonte Calendar//DA",
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
-        "X-WR-CALNAME:Ryanair Piemonte - CPH",
-        "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
-        "X-PUBLISHED-TTL:PT6H",
-    ]
-    for number, origin, destination, departure, arrival in flights:
-        uid = f"{number}-{origin}-{destination}-{departure.strftime('%Y%m%dT%H%M')}@hfedder-ryanair-calendar"
-        dep_tz = "Europe/Copenhagen" if origin == "CPH" else "Europe/Rome"
-        arr_tz = "Europe/Copenhagen" if destination == "CPH" else "Europe/Rome"
-        lines += [
-            "BEGIN:VEVENT",
-            f"UID:{uid}",
-            f"DTSTAMP:{stamp}",
-            f"DTSTART;TZID={dep_tz}:{departure.strftime('%Y%m%dT%H%M%S')}",
-            f"DTEND;TZID={arr_tz}:{arrival.strftime('%Y%m%dT%H%M%S')}",
-            "SUMMARY:" + escape(f"Flight {number} {origin} -> {destination}"),
-            "LOCATION:" + escape(f"{origin} -> {destination}"),
-            "DESCRIPTION:" + escape("Statisk verificeret Ryanair-flyplan. Kontroller altid Ryanair foer booking."),
-            "STATUS:CONFIRMED",
-            "TRANSP:TRANSPARENT",
-            "END:VEVENT",
-        ]
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//hfedder//Ryanair Piemonte//DA", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:Ryanair Piemonte - CPH", "REFRESH-INTERVAL;VALUE=DURATION:PT6H", "X-PUBLISHED-TTL:PT6H"]
+    for number, origin, dest, dep, arr in flights:
+        # Stable UID for same flight/date, even if Ryanair changes departure time.
+        uid = f"{number}-{origin}-{dest}-{dep.date().isoformat()}@hfedder-ryanair-calendar"
+        utc_dep = dep.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        utc_arr = arr.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        lines.extend(["BEGIN:VEVENT", f"UID:{uid}", f"DTSTAMP:{stamp}", f"DTSTART:{utc_dep}", f"DTEND:{utc_arr}", f"SUMMARY:{esc(number + ' ' + origin + ' -> ' + dest)}", f"LOCATION:{esc(origin + ' -> ' + dest)}", "DESCRIPTION:" + esc("Published timetable (not a booking). Check Ryanair before travel."), "STATUS:CONFIRMED", "TRANSP:TRANSPARENT", "END:VEVENT"])
     lines.append("END:VCALENDAR")
-    return "\r\n".join(lines) + "\r\n"
+    return "\r\n".join(fold(line) for line in lines) + "\r\n"
 
 
 def main():
-    flights = expand_rules()
-    counts = {"TRN->CPH": 0, "BGY->CPH": 0, "CPH->TRN": 0, "CPH->BGY": 0}
-    for _, origin, destination, _, _ in flights:
-        counts[f"{origin}->{destination}"] += 1
-
-    print("Static verified Ryanair calendar")
-    for route, count in counts.items():
-        print(f"{route}: {count} flights")
-
-    if OUTPUT_FILE.exists():
-        shutil.copy2(OUTPUT_FILE, BACKUP_FILE)
-    OUTPUT_FILE.write_text(build_ics(flights), encoding="utf-8", newline="")
-    print(f"Published {len(flights)} flights to {OUTPUT_FILE}")
+    publish = bool_env("PUBLISH_CALENDAR")
+    report = {"generated_utc": datetime.now(timezone.utc).isoformat(), "source": URL, "publish_requested": publish, "published": False, "months": [], "errors": [], "counts": {}, "status": "failed"}
+    collected = []
+    try:
+        months = months_to_fetch()
+        for year, month in months:
+            for origin, destination in ROUTES:
+                label = f"{origin}->{destination} {year}-{month:02d}"
+                try:
+                    data = fetch(origin, destination, year, month)
+                    flights = extract(data, origin, destination, year, month)
+                    # Empty months may be legitimate, but cannot be certified complete.
+                    if not flights:
+                        raise ValueError("No flights returned; cannot validate completeness")
+                    collected.extend(flights)
+                    report["months"].append({"route": label, "flights": len(flights), "ok": True})
+                    print(f"OK {label}: {len(flights)} flights", flush=True)
+                except Exception as exc:
+                    message = f"{label}: {type(exc).__name__}: {exc}"
+                    report["errors"].append(message)
+                    report["months"].append({"route": label, "ok": False, "error": str(exc)})
+                    print("ERROR", message, flush=True)
+        unique = {}
+        for flight in collected:
+            key = (flight[0], flight[1], flight[2], flight[3].date())
+            if key in unique and unique[key] != flight:
+                report["errors"].append(f"Duplicate flight/date with different times: {key}")
+            unique[key] = flight
+        flights = sorted(unique.values(), key=lambda f: f[3].astimezone(timezone.utc))
+        report["counts"] = {f"{a}->{b}": sum(f[1] == a and f[2] == b for f in flights) for a, b in ROUTES}
+        report["total_flights"] = len(flights)
+        if flights:
+            CANDIDATE.write_bytes(make_ics(flights).encode("utf-8"))
+        else:
+            # Prevent stale candidate from passing a later workflow check.
+            CANDIDATE.unlink(missing_ok=True)
+        if not report["errors"] and flights:
+            report["status"] = "validated_structure_not_completeness"
+            if publish:
+                if PUBLISHED.exists():
+                    shutil.copy2(PUBLISHED, BACKUP)
+                PUBLISHED.write_bytes(CANDIDATE.read_bytes())
+                report["published"] = True
+                print(f"Published {len(flights)} flights to {PUBLISHED}")
+        else:
+            print("Publication blocked: incomplete or invalid data", flush=True)
+    except Exception as exc:
+        report["errors"].append(f"Fatal: {type(exc).__name__}: {exc}")
+    finally:
+        REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Validation report: {REPORT}; status={report['status']}; published={report['published']}")
+    return 1 if report["errors"] else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
