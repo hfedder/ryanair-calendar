@@ -30,7 +30,7 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          r = json.loads(Path('piemonte_fast90_validation.json').read_text(encoding='utf-8'))
+          r = json.loads(Path('piemonte_fast90_v2_validation.json').read_text(encoding='utf-8'))
           p = Path('Piemonte_tog_fast90_candidate.ics')
           assert r['qualifying_flights'] > 0, 'No qualifying flights'
           assert r['recommended'] == r['qualifying_flights'], 'Missing recommendations'
@@ -49,7 +49,7 @@ jobs:
           name: piemonte-rail-daily-test
           path: |
             Piemonte_tog_fast90_candidate.ics
-            piemonte_fast90_validation.json
+            piemonte_fast90_v2_validation.json
       - name: Publish separate TEST calendar to GitHub Pages source
         run: |
           cp Piemonte_tog_fast90_candidate.ics Piemonte_tog_rolling.ics
