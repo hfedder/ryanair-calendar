@@ -28,7 +28,7 @@ jobs:
       - name: Update Ryanair calendar
         run: python update_ryanair_calendar.py
         env:
-          PUBLISH_CALENDAR: "false"
+          PUBLISH_CALENDAR: "true"
           MONTHS_AHEAD: "12"
 
       - name: Validate calendar
