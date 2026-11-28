@@ -1,28 +1,257 @@
 {
-  "generated_at_utc": "2026-11-20T14:10:17.450340+00:00",
+  "generated_utc": "2026-11-28T06:30:27.519511+00:00",
+  "source": "https://services-api.ryanair.com/timtbl/3/schedules/{origin}/{destination}/years/{year}/months/{month}",
   "publish_requested": false,
-  "mode": "hybrid-mcp-with-optional-availability-supplement",
-  "total_flights": 950,
-  "route_counts": {
-    "TRN->CPH": 110,
-    "BGY->CPH": 365,
-    "CPH->TRN": 110,
-    "CPH->BGY": 365
-  },
-  "availability_supplement_flights": 0,
-  "mcp_error_count": 0,
-  "availability_errors": [
-    "TRN->CPH: availability disabled after HTTP 409",
-    "BGY->CPH: availability disabled after HTTP 409",
-    "CPH->TRN: availability disabled after HTTP 409",
-    "CPH->BGY: availability disabled after HTTP 409"
+  "published": false,
+  "months": [
+    {
+      "route": "CPH->BGY 2026-11",
+      "flights": 5,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2026-11",
+      "flights": 6,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2026-11",
+      "flights": 1,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2026-11",
+      "flights": 2,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2026-12",
+      "flights": 57,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2026-12",
+      "flights": 57,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2026-12",
+      "flights": 12,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2026-12",
+      "flights": 12,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-01",
+      "flights": 58,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-01",
+      "flights": 58,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-01",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-01",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-02",
+      "flights": 52,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-02",
+      "flights": 52,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-02",
+      "flights": 8,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-02",
+      "flights": 8,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-03",
+      "flights": 63,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-03",
+      "flights": 63,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-03",
+      "flights": 11,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-03",
+      "flights": 11,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-04",
+      "flights": 68,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-04",
+      "flights": 68,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-04",
+      "flights": 8,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-04",
+      "flights": 8,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-05",
+      "flights": 72,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-05",
+      "flights": 72,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-05",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-05",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-06",
+      "flights": 68,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-06",
+      "flights": 68,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-06",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-06",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-07",
+      "flights": 70,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-07",
+      "flights": 70,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-07",
+      "flights": 8,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-07",
+      "flights": 8,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-08",
+      "flights": 72,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-08",
+      "flights": 72,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-08",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-08",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-09",
+      "flights": 68,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-09",
+      "flights": 68,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-09",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-09",
+      "flights": 9,
+      "ok": true
+    },
+    {
+      "route": "CPH->BGY 2027-10",
+      "flights": 70,
+      "ok": true
+    },
+    {
+      "route": "BGY->CPH 2027-10",
+      "flights": 70,
+      "ok": true
+    },
+    {
+      "route": "CPH->TRN 2027-10",
+      "flights": 8,
+      "ok": true
+    },
+    {
+      "route": "TRN->CPH 2027-10",
+      "flights": 8,
+      "ok": true
+    }
   ],
-  "checks": {
-    "minimum_total_100": true,
-    "all_routes_present": true,
-    "turin_plausible": true,
-    "bergamo_plausible": true,
-    "mcp_errors_below_10_percent": true
+  "errors": [],
+  "counts": {
+    "CPH->BGY": 723,
+    "BGY->CPH": 724,
+    "CPH->TRN": 101,
+    "TRN->CPH": 102
   },
-  "validation_passed": true
+  "status": "validated_structure_not_completeness",
+  "total_flights": 1650
 }
