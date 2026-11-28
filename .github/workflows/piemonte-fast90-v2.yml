@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Build date-validated 90-day rail candidate
-        run: python -u piemonte_rolling_rail_fast90_v2.py --days 365
+        run: python -u piemonte_rolling_rail_fast90_v2.py --days 90
       - name: Upload candidate and validation
         if: always()
         uses: actions/upload-artifact@v4
