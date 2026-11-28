@@ -19,13 +19,15 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Test train connections
-        run: python test_tog_december_2026_v4.py
+      - name: Build separate train calendar
+        run: python build_tog_calendar_december_2026.py
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: tog-december-2026
-          path: tog_december_2026_test.json
+          path: |
+            tog_december_2026_test.json
+            Piemonte_tog_december_2026_candidate.ics
           if-no-files-found: warn
