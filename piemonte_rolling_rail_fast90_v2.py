@@ -102,6 +102,20 @@ def main():
             chosen = 'NIZZA MONFERRATO'
         else:
             chosen = fastest
+                    # Diagnose why Nizza is not recommended
+        if nizza is None:
+            print(f"DIAG {e['flight']} {e['arrival'].date()}: NIZZA NOT FOUND")
+        else:
+            extra_minutes = nizza[-1]['arrival'] - fastest_arrival
+            extra_transfers = (len(nizza) - 1) - fastest_transfers
+
+            print(
+                f"DIAG {e['flight']} {e['arrival'].date()}: "
+                f"NIZZA +{extra_minutes} min, "
+                f"extra transfers {extra_transfers}, "
+                f"chosen {chosen}",
+                flush=True
+            )
         others = [d for d in best if d != chosen]
         alternative = min(others, key=lambda d: (best[d][-1]['arrival'], len(best[d]))) if others else None
         for dest, label in ((chosen, 'ANBEFALET'), (alternative, 'ALTERNATIV')):
