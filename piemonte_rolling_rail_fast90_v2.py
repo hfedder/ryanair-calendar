@@ -90,7 +90,7 @@ def main():
             continue
         fastest = min(best, key=lambda d: (best[d][-1]['arrival'], len(best[d])))
         chosen = ('NIZZA MONFERRATO' if 'NIZZA MONFERRATO' in best and
-                  best['NIZZA MONFERRATO'][-1]['arrival'] <= best[fastest][-1]['arrival'] + 30 else fastest)
+                  best['NIZZA MONFERRATO'][-1]['arrival'] <= best[fastest][-1]['arrival'] + 45 else fastest)
         others = [d for d in best if d != chosen]
         alternative = min(others, key=lambda d: (best[d][-1]['arrival'], len(best[d]))) if others else None
         for dest, label in ((chosen, 'ANBEFALET'), (alternative, 'ALTERNATIV')):
