@@ -210,10 +210,11 @@ def options(edges, start_ids, target_ids, ready, limit=2):
                 break
             if dest in visited:
                 continue
-            key = (dest, legs + 1, trip, end // 10)
+            key = (dest, legs + 1, trip, end, visited)
             if key in seen:
                 continue
             seen.add(key)
+
             segment = {'from_stop_id': sid, 'to_stop_id': dest, 'departure': dep,
                        'arrival': end, 'train': train, 'trip_id': trip}
             heapq.heappush(heap, (end, legs + 1, serial, dest,
