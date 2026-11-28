@@ -23,7 +23,7 @@ jobs:
         run: python test_tog_december_2026_v4.py
         
       - name: Build separate train calendar
-        run: python build_tog_calendar_december_2026_v6.py
+        run: python build_tog_calendar_december_2026_v7.py
 
       - name: Upload test results
         if: always()
@@ -33,5 +33,5 @@ jobs:
           path: |
             tog_december_2026_test.json
             Piemonte_tog_december_2026_candidate.ics
-            tog_december_2026_v6_validation.json
+            tog_december_2026_v7_validation.json
           if-no-files-found: warn
