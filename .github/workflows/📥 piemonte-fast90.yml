@@ -1,0 +1,25 @@
+name: Test Piemonte Rail Fast 90 Days
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rail:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build 90-day rail candidate
+        run: python -u piemonte_rolling_rail_fast90.py --days 90
+      - name: Upload candidate and validation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: piemonte-fast90-test
+          path: |
+            Piemonte_tog_fast90_candidate.ics
+            piemonte_fast90_validation.json
+          if-no-files-found: warn
