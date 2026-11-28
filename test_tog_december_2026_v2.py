@@ -202,8 +202,8 @@ def options(edges, start_ids, target_ids, ready, limit=2):
         if legs >= MAX_LEGS:
             continue
         seq = edges.get(sid, [])
-        earliest = arr + (5 if legs else 0)
-        latest = min(arr + (MAX_WAIT if legs else 360), ready + 720)
+        earliest = arr + (10 if legs else 0)
+        latest = min(arr + (45 if legs else 360), ready + 720)
         lo = bisect.bisect_left(departures.get(sid, []), earliest)
         for dep, end, dest, trip, train in seq[lo:]:
             if dep > latest:
