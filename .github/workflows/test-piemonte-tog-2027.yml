@@ -7,25 +7,27 @@ permissions:
   contents: read
 
 jobs:
-  build-test-calendar:
+  test-rail:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12'
+      - name: Find 2027 rail options
+        run: python find_piemonte_trains_2027.py
       - name: Build independent candidate calendar
         env:
-          PUBLISH_RAIL: "false"
+          PUBLISH_RAIL: 'false'
         run: python build_piemonte_tog_2027.py
-      - name: Upload candidate and validation
+      - name: Upload candidate and reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: piemonte-tog-2027-test
           path: |
+            tog_2027_*.json
             Piemonte_tog_2027_candidate.ics
-            tog_2027_validation.json
           if-no-files-found: warn
