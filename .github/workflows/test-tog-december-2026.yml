@@ -20,7 +20,7 @@ jobs:
           python-version: "3.12"
 
       - name: Test train connections
-        run: python test_tog_december_2026.py
+        run: python test_tog_december_2026_v2.py
 
       - name: Upload test results
         if: always()
