@@ -78,7 +78,7 @@ def main():
         if route_key not in route_cache:
             best = {}
             for dest in base.TARGETS:
-                paths = rail.options(edges, starts[e['airport']], targets[dest], ready, limit=4)
+                paths = rail.options(edges, starts[e['airport']], targets[dest], ready, limit=20)
                 eligible = [p for p in paths if base.valid_path(p, ready)]
                 if eligible:
                     best[dest] = min(eligible, key=lambda p: (p[-1]['arrival'], len(p)))
