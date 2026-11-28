@@ -58,6 +58,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
 
           git add Ryanair_TRN_BGY_CPH_candidate.ics
+          git add Ryanair_TRN_BGY_CPH_verificerede_afgange.ics
           git add ryanair_validation_report.json
 
           if git diff --cached --quiet; then
